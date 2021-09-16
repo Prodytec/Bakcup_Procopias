@@ -1,0 +1,13 @@
+C:\Users\DELL\Desktop\Visual Studio\Series procopias\Cargar_series\Cargar_series\bin\Debug\Cargar_series.exe.config
+C:\Users\DELL\Desktop\Visual Studio\Series procopias\Cargar_series\Cargar_series\bin\Debug\Cargar_series.exe
+C:\Users\DELL\Desktop\Visual Studio\Series procopias\Cargar_series\Cargar_series\bin\Debug\Cargar_series.pdb
+C:\Users\DELL\Desktop\Visual Studio\Series procopias\Cargar_series\Cargar_series\obj\Debug\Cargar_series.csprojAssemblyReference.cache
+C:\Users\DELL\Desktop\Visual Studio\Series procopias\Cargar_series\Cargar_series\obj\Debug\Cargar_series.Menu.resources
+C:\Users\DELL\Desktop\Visual Studio\Series procopias\Cargar_series\Cargar_series\obj\Debug\Cargar_series.Properties.Resources.resources
+C:\Users\DELL\Desktop\Visual Studio\Series procopias\Cargar_series\Cargar_series\obj\Debug\Cargar_series.csproj.GenerateResource.cache
+C:\Users\DELL\Desktop\Visual Studio\Series procopias\Cargar_series\Cargar_series\obj\Debug\Cargar_series.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Desktop\Visual Studio\Series procopias\Cargar_series\Cargar_series\obj\Debug\Cargar_series.exe
+C:\Users\DELL\Desktop\Visual Studio\Series procopias\Cargar_series\Cargar_series\obj\Debug\Cargar_series.pdb
+C:\Users\DELL\Desktop\Visual Studio\Series procopias\Cargar_series\Cargar_series\obj\Debug\Cargar_series.Acercade.resources
+C:\Users\DELL\Desktop\Visual Studio\Series procopias\Cargar_series\Cargar_series\obj\Debug\Cargar_series.Exportar_excel.resources
+C:\Users\DELL\Desktop\Visual Studio\Series procopias\Cargar_series\Cargar_series\obj\Debug\Cargar_series.Series.resources
