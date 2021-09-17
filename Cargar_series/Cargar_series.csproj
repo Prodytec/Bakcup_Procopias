@@ -112,5 +112,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Formulas\Formulas.csproj">
+      <Project>{9698f45e-d8ab-4c0e-a995-c9e92e9bb8c8}</Project>
+      <Name>Formulas</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

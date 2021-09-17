@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31025.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cargar_series", "Cargar_series\Cargar_series.csproj", "{7BF31E7F-60D7-4105-A59C-F175F68E4492}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Formulas", "Formulas\Formulas.csproj", "{9698F45E-D8AB-4C0E-A995-C9E92E9BB8C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{7BF31E7F-60D7-4105-A59C-F175F68E4492}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BF31E7F-60D7-4105-A59C-F175F68E4492}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BF31E7F-60D7-4105-A59C-F175F68E4492}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9698F45E-D8AB-4C0E-A995-C9E92E9BB8C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9698F45E-D8AB-4C0E-A995-C9E92E9BB8C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9698F45E-D8AB-4C0E-A995-C9E92E9BB8C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9698F45E-D8AB-4C0E-A995-C9E92E9BB8C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
