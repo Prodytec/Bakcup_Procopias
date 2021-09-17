@@ -20,15 +20,33 @@ namespace Cargar_series
         Datagrid Datagrid = new Datagrid();
         private void Series_Load(object sender, EventArgs e)
         {
-            cbfiltro.Items.Add("Hoy");
             cbfiltro.Items.Add("Mes actual");
+            cbfiltro.Items.Add("Hoy");
             cbfiltro.Items.Add("Personalizado");
+            cbfiltro.SelectedItem = cbfiltro.Items[0];
 
-            
             //nombre del store para llenar el datagrid
             string store = "sp_Ecommercebrm";
 
             Datagrid.Llenardatagrid(dgvfacturas, store);
+        }
+
+        private void cbfiltro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbfiltro.SelectedIndex == 0 || cbfiltro.SelectedIndex == 1)
+            {
+                lbldesde.Visible = false;
+                lblhasta.Visible = false;
+                txtdesde.Visible = false;
+                txthasta.Visible = false;
+            }
+            else
+            {
+                lbldesde.Visible = true;
+                lblhasta.Visible = true;
+                txtdesde.Visible = true;
+                txthasta.Visible = true;
+            }
         }
     }
 }
