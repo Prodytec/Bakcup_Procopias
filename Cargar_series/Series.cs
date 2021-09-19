@@ -29,6 +29,7 @@ namespace Cargar_series
 
         string Mes = "SP_fACTURAS_MES_ACTUAL";
         string Hoy = "SP_FACTURAS_HOY";
+        string Personalizado = "SP_FACTURAS_PERSONALIZADAS";
 
         private void cbfiltro_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -36,8 +37,8 @@ namespace Cargar_series
             {
                 lbldesde.Visible = false;
                 lblhasta.Visible = false;
-                txtdesde.Visible = false;
-                txthasta.Visible = false;
+                mtxtdesde.Visible = false;
+                mtxthasta.Visible = false;
                 Datagrid.Llenardatagrid(dgvfacturas, Mes);
                 
             }
@@ -45,17 +46,22 @@ namespace Cargar_series
             {
                 lbldesde.Visible = false;
                 lblhasta.Visible = false;
-                txtdesde.Visible = false;
-                txthasta.Visible = false;
+                mtxtdesde.Visible = false;
+                mtxthasta.Visible = false;
                 Datagrid.Llenardatagrid(dgvfacturas, Hoy);
             }
             else
             {
                 lbldesde.Visible = true;
                 lblhasta.Visible = true;
-                txtdesde.Visible = true;
-                txthasta.Visible = true;
+                mtxtdesde.Visible = true;
+                mtxthasta.Visible = true;
             }
+        }
+
+        private void mtxthasta_Leave(object sender, EventArgs e)
+        {
+            Datagrid.Llenardatagrid(dgvfacturas, Personalizado, mtxtdesde, mtxthasta);
         }
     }
 }

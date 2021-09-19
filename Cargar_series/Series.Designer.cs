@@ -38,8 +38,8 @@ namespace Cargar_series
             this.txtnumero = new System.Windows.Forms.TextBox();
             this.lbldesde = new System.Windows.Forms.Label();
             this.lblhasta = new System.Windows.Forms.Label();
-            this.txtdesde = new System.Windows.Forms.TextBox();
-            this.txthasta = new System.Windows.Forms.TextBox();
+            this.mtxthasta = new System.Windows.Forms.MaskedTextBox();
+            this.mtxtdesde = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvfacturas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,10 +57,11 @@ namespace Cargar_series
             // 
             this.dgvfacturas.AllowUserToAddRows = false;
             this.dgvfacturas.AllowUserToDeleteRows = false;
+            this.dgvfacturas.AllowUserToResizeColumns = false;
+            this.dgvfacturas.AllowUserToResizeRows = false;
             this.dgvfacturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvfacturas.Location = new System.Drawing.Point(12, 111);
             this.dgvfacturas.Name = "dgvfacturas";
-            this.dgvfacturas.ReadOnly = true;
             this.dgvfacturas.Size = new System.Drawing.Size(776, 327);
             this.dgvfacturas.TabIndex = 1;
             // 
@@ -111,33 +112,38 @@ namespace Cargar_series
             // lblhasta
             // 
             this.lblhasta.AutoSize = true;
-            this.lblhasta.Location = new System.Drawing.Point(416, 16);
+            this.lblhasta.Location = new System.Drawing.Point(357, 15);
             this.lblhasta.Name = "lblhasta";
             this.lblhasta.Size = new System.Drawing.Size(35, 13);
             this.lblhasta.TabIndex = 8;
             this.lblhasta.Text = "Hasta";
             // 
-            // txtdesde
+            // mtxthasta
             // 
-            this.txtdesde.Location = new System.Drawing.Point(243, 13);
-            this.txtdesde.Name = "txtdesde";
-            this.txtdesde.Size = new System.Drawing.Size(142, 20);
-            this.txtdesde.TabIndex = 9;
+            this.mtxthasta.Location = new System.Drawing.Point(416, 12);
+            this.mtxthasta.Mask = "00/00/0000";
+            this.mtxthasta.Name = "mtxthasta";
+            this.mtxthasta.Size = new System.Drawing.Size(99, 20);
+            this.mtxthasta.TabIndex = 11;
+            this.mtxthasta.ValidatingType = typeof(System.DateTime);
+            this.mtxthasta.Leave += new System.EventHandler(this.mtxthasta_Leave);
             // 
-            // txthasta
+            // mtxtdesde
             // 
-            this.txthasta.Location = new System.Drawing.Point(478, 13);
-            this.txthasta.Name = "txthasta";
-            this.txthasta.Size = new System.Drawing.Size(156, 20);
-            this.txthasta.TabIndex = 10;
+            this.mtxtdesde.Location = new System.Drawing.Point(234, 13);
+            this.mtxtdesde.Mask = "00/00/0000";
+            this.mtxtdesde.Name = "mtxtdesde";
+            this.mtxtdesde.Size = new System.Drawing.Size(99, 20);
+            this.mtxtdesde.TabIndex = 12;
+            this.mtxtdesde.ValidatingType = typeof(System.DateTime);
             // 
             // Series
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.txthasta);
-            this.Controls.Add(this.txtdesde);
+            this.Controls.Add(this.mtxtdesde);
+            this.Controls.Add(this.mtxthasta);
             this.Controls.Add(this.lblhasta);
             this.Controls.Add(this.lbldesde);
             this.Controls.Add(this.txtnumero);
@@ -168,7 +174,7 @@ namespace Cargar_series
         private System.Windows.Forms.TextBox txtnumero;
         private System.Windows.Forms.Label lbldesde;
         private System.Windows.Forms.Label lblhasta;
-        private System.Windows.Forms.TextBox txtdesde;
-        private System.Windows.Forms.TextBox txthasta;
+        private System.Windows.Forms.MaskedTextBox mtxthasta;
+        private System.Windows.Forms.MaskedTextBox mtxtdesde;
     }
 }
