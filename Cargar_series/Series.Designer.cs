@@ -57,47 +57,49 @@ namespace Cargar_series
             // 
             this.dgvfacturas.AllowUserToAddRows = false;
             this.dgvfacturas.AllowUserToDeleteRows = false;
-            this.dgvfacturas.AllowUserToResizeColumns = false;
-            this.dgvfacturas.AllowUserToResizeRows = false;
+            this.dgvfacturas.AllowUserToOrderColumns = true;
+            this.dgvfacturas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvfacturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvfacturas.Location = new System.Drawing.Point(12, 111);
             this.dgvfacturas.Name = "dgvfacturas";
             this.dgvfacturas.Size = new System.Drawing.Size(776, 327);
             this.dgvfacturas.TabIndex = 1;
+            this.dgvfacturas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvfacturas_CellContentClick);
             // 
             // txtnombrecli
             // 
             this.txtnombrecli.Location = new System.Drawing.Point(13, 85);
             this.txtnombrecli.Name = "txtnombrecli";
-            this.txtnombrecli.Size = new System.Drawing.Size(178, 20);
+            this.txtnombrecli.Size = new System.Drawing.Size(189, 20);
             this.txtnombrecli.TabIndex = 2;
+            this.txtnombrecli.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtnombrecli_KeyUp);
             // 
             // txtfecha
             // 
-            this.txtfecha.Location = new System.Drawing.Point(197, 85);
+            this.txtfecha.Location = new System.Drawing.Point(208, 85);
             this.txtfecha.Name = "txtfecha";
-            this.txtfecha.Size = new System.Drawing.Size(168, 20);
+            this.txtfecha.Size = new System.Drawing.Size(134, 20);
             this.txtfecha.TabIndex = 3;
             // 
             // txttipo
             // 
-            this.txttipo.Location = new System.Drawing.Point(371, 85);
+            this.txttipo.Location = new System.Drawing.Point(348, 85);
             this.txttipo.Name = "txttipo";
-            this.txttipo.Size = new System.Drawing.Size(123, 20);
+            this.txttipo.Size = new System.Drawing.Size(143, 20);
             this.txttipo.TabIndex = 4;
             // 
             // txtsucursal
             // 
-            this.txtsucursal.Location = new System.Drawing.Point(500, 85);
+            this.txtsucursal.Location = new System.Drawing.Point(497, 85);
             this.txtsucursal.Name = "txtsucursal";
-            this.txtsucursal.Size = new System.Drawing.Size(151, 20);
+            this.txtsucursal.Size = new System.Drawing.Size(138, 20);
             this.txtsucursal.TabIndex = 5;
             // 
             // txtnumero
             // 
-            this.txtnumero.Location = new System.Drawing.Point(657, 85);
+            this.txtnumero.Location = new System.Drawing.Point(641, 85);
             this.txtnumero.Name = "txtnumero";
-            this.txtnumero.Size = new System.Drawing.Size(131, 20);
+            this.txtnumero.Size = new System.Drawing.Size(147, 20);
             this.txtnumero.TabIndex = 6;
             // 
             // lbldesde

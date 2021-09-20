@@ -63,5 +63,16 @@ namespace Cargar_series
         {
             Datagrid.Llenardatagrid(dgvfacturas, Personalizado, mtxtdesde, mtxthasta);
         }
+
+        private void dgvfacturas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Cargar_series C = new Cargar_series();
+            C.ShowDialog();
+        }
+
+        private void txtnombrecli_KeyUp(object sender, KeyEventArgs e)
+        {
+            Datagrid.Buscargrid(dgvfacturas, txtnombrecli);
+        }
     }
 }

@@ -52,6 +52,12 @@
     <Compile Include="Acercade.Designer.cs">
       <DependentUpon>Acercade.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cargar_series.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cargar_series.Designer.cs">
+      <DependentUpon>Cargar_series.cs</DependentUpon>
+    </Compile>
     <Compile Include="Exportar_excel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     </Compile>
     <EmbeddedResource Include="Acercade.resx">
       <DependentUpon>Acercade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cargar_series.resx">
+      <DependentUpon>Cargar_series.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Exportar_excel.resx">
       <DependentUpon>Exportar_excel.cs</DependentUpon>

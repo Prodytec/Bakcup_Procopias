@@ -14,6 +14,7 @@ namespace Formulas
         SqlConnection cnn = Conexionbd.DbConnection.getDBConnection();
         SqlDataAdapter da = new SqlDataAdapter();
         DataTable dt = new DataTable();
+        SqlCommand cmd = new SqlCommand();
         public void Llenardatagrid(DataGridView dgv, string Consulta)
         {
             try
@@ -50,8 +51,28 @@ namespace Formulas
 
                 dgv.DataSource = ds;
                 dgv.DataMember = "Consulta";
+
             }
 
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo llenar la tabla" + ex.ToString());
+            }
+        }
+
+        public void Buscargrid(DataGridView dgv, TextBox txtbox)
+        {
+            string consulta = "select Cli.nombre as Nombre ,Imag.Fecha as Fecha, Imag.Idtipocomprobante as Tipo, Imag.Sucursal as Sucursal, Imag.Numero as Numero from ImagenFcCab as Imag left join Clientes as Cli on Imag.Idcliente = Cli.idcliente where Cli.nombre like('" + txtbox.Text.Trim() + "%')";
+            try
+            {
+                cmd = new SqlCommand(consulta, cnn);
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                dgv.DataSource = dt;
+                cnn.Close();
+            }
             catch (Exception ex)
             {
                 MessageBox.Show("No se pudo llenar la tabla" + ex.ToString());
