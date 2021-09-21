@@ -18,6 +18,7 @@ namespace Cargar_series
             InitializeComponent();
         }
         Datagrid Datagrid = new Datagrid();
+
         private void Series_Load(object sender, EventArgs e)
         {
             cbfiltro.Items.Add("Mes actual");
@@ -30,6 +31,10 @@ namespace Cargar_series
         string Mes = "SP_fACTURAS_MES_ACTUAL";
         string Hoy = "SP_FACTURAS_HOY";
         string Personalizado = "SP_FACTURAS_PERSONALIZADAS";
+        string Nombrecli = "Cli.nombre";
+        string Tipo = "Imag.Idtipocomprobante";
+        string Sucursal = "Imag.Sucursal";
+        string Numero = "Imag.Numero";
 
         private void cbfiltro_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -59,11 +64,6 @@ namespace Cargar_series
             }
         }
 
-        private void mtxthasta_Leave(object sender, EventArgs e)
-        {
-            Datagrid.Llenardatagrid(dgvfacturas, Personalizado, mtxtdesde, mtxthasta);
-        }
-
         private void dgvfacturas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             Cargar_series C = new Cargar_series();
@@ -72,7 +72,32 @@ namespace Cargar_series
 
         private void txtnombrecli_KeyUp(object sender, KeyEventArgs e)
         {
-            Datagrid.Buscargrid(dgvfacturas, txtnombrecli);
+            Datagrid.Buscargrid(dgvfacturas, txtnombrecli, Nombrecli);
+        }
+
+        private void mtxtbuscarfecha_KeyUp(object sender, KeyEventArgs e)
+        {
+            Datagrid.Buscargridfecha(dgvfacturas, mtxtbuscarfecha);
+        }
+
+        private void mtxthasta_Leave(object sender, EventArgs e)
+        {
+            Datagrid.Llenardatagrid(dgvfacturas, Personalizado, mtxtdesde, mtxthasta);
+        }
+
+        private void txttipo_KeyUp(object sender, KeyEventArgs e)
+        {
+            Datagrid.Buscargrid(dgvfacturas, txtnombrecli, Tipo);
+        }
+
+        private void txtsucursal_KeyUp(object sender, KeyEventArgs e)
+        {
+            Datagrid.Buscargrid(dgvfacturas, txtnombrecli, Sucursal);
+        }
+
+        private void txtnumero_KeyUp(object sender, KeyEventArgs e)
+        {
+            Datagrid.Buscargrid(dgvfacturas, txtnombrecli, Numero);
         }
     }
 }

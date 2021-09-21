@@ -60,11 +60,31 @@ namespace Formulas
             }
         }
 
-        public void Buscargrid(DataGridView dgv, TextBox txtbox)
+        public void Buscargrid(DataGridView dgv, TextBox txtbox, string nombre)
         {
-            string consulta = "select Cli.nombre as Nombre ,Imag.Fecha as Fecha, Imag.Idtipocomprobante as Tipo, Imag.Sucursal as Sucursal, Imag.Numero as Numero from ImagenFcCab as Imag left join Clientes as Cli on Imag.Idcliente = Cli.idcliente where Cli.nombre like('" + txtbox.Text.Trim() + "%')";
+            string consulta = "select Cli.nombre as Nombre ,Imag.Fecha as Fecha, Imag.Idtipocomprobante as Tipo, Imag.Sucursal as Sucursal, Imag.Numero as Numero from ImagenFcCab as Imag left join Clientes as Cli on Imag.Idcliente = Cli.idcliente where " + "" + nombre.Trim() + "" + " like('" + txtbox.Text.Trim() + "%')";
             try
             {
+                cnn.Open();
+                cmd = new SqlCommand(consulta, cnn);
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                dgv.DataSource = dt;
+                cnn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo llenar la tabla" + ex.ToString());
+            }
+        }
+        public void Buscargridfecha(DataGridView dgv, MaskedTextBox txtbox)
+        {
+            string consulta = "select Cli.nombre as Nombre ,Imag.Fecha as Fecha, Imag.Idtipocomprobante as Tipo, Imag.Sucursal as Sucursal, Imag.Numero as Numero from ImagenFcCab as Imag left join Clientes as Cli on Imag.Idcliente = Cli.idcliente where Imag.Fecha like('" + txtbox.Text + "%')";
+            try
+            {
+                cnn.Open();
                 cmd = new SqlCommand(consulta, cnn);
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
