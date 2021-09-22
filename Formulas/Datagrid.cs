@@ -24,6 +24,7 @@ namespace Formulas
                 dt = new DataTable();
                 da.Fill(dt);
                 dgv.DataSource = dt;
+                cnn.Close();
 
             }
 
@@ -81,7 +82,7 @@ namespace Formulas
         }
         public void Buscargridfecha(DataGridView dgv, MaskedTextBox txtbox)
         {
-            string consulta = "select Cli.nombre as Nombre ,Imag.Fecha as Fecha, Imag.Idtipocomprobante as Tipo, Imag.Sucursal as Sucursal, Imag.Numero as Numero from ImagenFcCab as Imag left join Clientes as Cli on Imag.Idcliente = Cli.idcliente where Imag.Fecha like('" + txtbox.Text + "%')";
+            string consulta = "select Cli.nombre as Nombre ,Imag.Fecha as Fecha, Imag.Idtipocomprobante as Tipo, Imag.Sucursal as Sucursal, Imag.Numero as Numero from ImagenFcCab as Imag left join Clientes as Cli on Imag.Idcliente = Cli.idcliente where Imag.Fecha like('" + txtbox.Text.Trim() + "%')";
             try
             {
                 cnn.Open();

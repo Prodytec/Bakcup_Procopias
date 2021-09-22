@@ -143,6 +143,7 @@ namespace Cargar_series
             this.mtxtbuscarfecha.Size = new System.Drawing.Size(134, 20);
             this.mtxtbuscarfecha.TabIndex = 6;
             this.mtxtbuscarfecha.ValidatingType = typeof(System.DateTime);
+            this.mtxtbuscarfecha.TextChanged += new System.EventHandler(this.mtxtbuscarfecha_TextChanged);
             this.mtxtbuscarfecha.KeyUp += new System.Windows.Forms.KeyEventHandler(this.mtxtbuscarfecha_KeyUp);
             // 
             // Series
