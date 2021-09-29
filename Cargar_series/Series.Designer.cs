@@ -40,6 +40,7 @@ namespace Cargar_series
             this.mtxthasta = new System.Windows.Forms.MaskedTextBox();
             this.mtxtdesde = new System.Windows.Forms.MaskedTextBox();
             this.mtxtbuscarfecha = new System.Windows.Forms.MaskedTextBox();
+            this.btnsalir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvfacturas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,13 +59,16 @@ namespace Cargar_series
             this.dgvfacturas.AllowUserToAddRows = false;
             this.dgvfacturas.AllowUserToDeleteRows = false;
             this.dgvfacturas.AllowUserToOrderColumns = true;
+            this.dgvfacturas.AllowUserToResizeRows = false;
             this.dgvfacturas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvfacturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvfacturas.Location = new System.Drawing.Point(12, 111);
             this.dgvfacturas.Name = "dgvfacturas";
-            this.dgvfacturas.Size = new System.Drawing.Size(776, 327);
+            this.dgvfacturas.ReadOnly = true;
+            this.dgvfacturas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvfacturas.Size = new System.Drawing.Size(776, 301);
             this.dgvfacturas.TabIndex = 4;
-            this.dgvfacturas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvfacturas_CellContentClick);
+            this.dgvfacturas.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvfacturas_CellContentDoubleClick);
             // 
             // txtnombrecli
             // 
@@ -144,13 +148,23 @@ namespace Cargar_series
             this.mtxtbuscarfecha.TabIndex = 6;
             this.mtxtbuscarfecha.ValidatingType = typeof(System.DateTime);
             this.mtxtbuscarfecha.TextChanged += new System.EventHandler(this.mtxtbuscarfecha_TextChanged);
-            this.mtxtbuscarfecha.KeyUp += new System.Windows.Forms.KeyEventHandler(this.mtxtbuscarfecha_KeyUp);
+            // 
+            // btnsalir
+            // 
+            this.btnsalir.Location = new System.Drawing.Point(704, 418);
+            this.btnsalir.Name = "btnsalir";
+            this.btnsalir.Size = new System.Drawing.Size(84, 23);
+            this.btnsalir.TabIndex = 10;
+            this.btnsalir.Text = "Salir";
+            this.btnsalir.UseVisualStyleBackColor = true;
+            this.btnsalir.Click += new System.EventHandler(this.btnsalir_Click);
             // 
             // Series
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnsalir);
             this.Controls.Add(this.mtxtbuscarfecha);
             this.Controls.Add(this.mtxtdesde);
             this.Controls.Add(this.mtxthasta);
@@ -185,5 +199,6 @@ namespace Cargar_series
         private System.Windows.Forms.MaskedTextBox mtxthasta;
         private System.Windows.Forms.MaskedTextBox mtxtdesde;
         private System.Windows.Forms.MaskedTextBox mtxtbuscarfecha;
+        private System.Windows.Forms.Button btnsalir;
     }
 }

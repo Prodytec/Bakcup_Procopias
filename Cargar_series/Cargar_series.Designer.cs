@@ -33,6 +33,9 @@ namespace Cargar_series
             this.lblcliente = new System.Windows.Forms.Label();
             this.lblfactura = new System.Windows.Forms.Label();
             this.lblfecha = new System.Windows.Forms.Label();
+            this.txtcliente = new System.Windows.Forms.TextBox();
+            this.txtfactura = new System.Windows.Forms.TextBox();
+            this.txtfecha = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvfacturas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,11 +81,39 @@ namespace Cargar_series
             this.lblfecha.TabIndex = 8;
             this.lblfecha.Text = "Fecha:";
             // 
+            // txtcliente
+            // 
+            this.txtcliente.Enabled = false;
+            this.txtcliente.Location = new System.Drawing.Point(90, 12);
+            this.txtcliente.Name = "txtcliente";
+            this.txtcliente.Size = new System.Drawing.Size(248, 20);
+            this.txtcliente.TabIndex = 9;
+            // 
+            // txtfactura
+            // 
+            this.txtfactura.Enabled = false;
+            this.txtfactura.Location = new System.Drawing.Point(90, 44);
+            this.txtfactura.Name = "txtfactura";
+            this.txtfactura.Size = new System.Drawing.Size(210, 20);
+            this.txtfactura.TabIndex = 10;
+            // 
+            // txtfecha
+            // 
+            this.txtfecha.Enabled = false;
+            this.txtfecha.Location = new System.Drawing.Point(388, 44);
+            this.txtfecha.MaxLength = 6;
+            this.txtfecha.Name = "txtfecha";
+            this.txtfecha.Size = new System.Drawing.Size(103, 20);
+            this.txtfecha.TabIndex = 11;
+            // 
             // Cargar_series
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtfecha);
+            this.Controls.Add(this.txtfactura);
+            this.Controls.Add(this.txtcliente);
             this.Controls.Add(this.lblfecha);
             this.Controls.Add(this.lblfactura);
             this.Controls.Add(this.lblcliente);
@@ -101,5 +132,8 @@ namespace Cargar_series
         public System.Windows.Forms.Label lblcliente;
         public System.Windows.Forms.Label lblfactura;
         public System.Windows.Forms.Label lblfecha;
+        public System.Windows.Forms.TextBox txtcliente;
+        public System.Windows.Forms.TextBox txtfactura;
+        public System.Windows.Forms.TextBox txtfecha;
     }
 }

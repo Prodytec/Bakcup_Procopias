@@ -28,13 +28,12 @@ namespace Cargar_series
 
         }
 
-        string Mes = "SP_fACTURAS_MES_ACTUAL";
-        string Hoy = "SP_FACTURAS_HOY";
-        string Personalizado = "SP_FACTURAS_PERSONALIZADAS";
-        string Nombrecli = "Cli.nombre";
-        string Tipo = "Imag.Idtipocomprobante";
+        string Todos = "SP_FACTURAS_PROCOPIAS";
+        string Nombrecli = "Cli.Nombre";
+        string Tipo = "tipo.NombreCorto";
         string Sucursal = "Imag.Sucursal";
         string Numero = "Imag.Numero";
+        string Fecha = "Imag.Fecha";
 
         private void cbfiltro_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -44,7 +43,7 @@ namespace Cargar_series
                 lblhasta.Visible = false;
                 mtxtdesde.Visible = false;
                 mtxthasta.Visible = false;
-                Datagrid.Llenardatagrid(dgvfacturas, Mes);
+                Datagrid.Llenardatagrid(dgvfacturas, Todos, 1, mtxtdesde, mtxthasta, Nombrecli, txtnombrecli);
                 
             }
             else if(cbfiltro.SelectedIndex == 1)
@@ -53,7 +52,7 @@ namespace Cargar_series
                 lblhasta.Visible = false;
                 mtxtdesde.Visible = false;
                 mtxthasta.Visible = false;
-                Datagrid.Llenardatagrid(dgvfacturas, Hoy);
+                Datagrid.Llenardatagrid(dgvfacturas, Todos, 2, mtxtdesde, mtxthasta, Nombrecli, txtnombrecli); ;
             }
             else
             {
@@ -64,45 +63,53 @@ namespace Cargar_series
             }
         }
 
-        private void dgvfacturas_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            Cargar_series C = new Cargar_series();
-            C.ShowDialog();
-        }
-
         private void txtnombrecli_KeyUp(object sender, KeyEventArgs e)
         {
-            Datagrid.Buscargrid(dgvfacturas, txtnombrecli, Nombrecli);
-        }
-
-        private void mtxtbuscarfecha_KeyUp(object sender, KeyEventArgs e)
-        {
-            //Datagrid.Buscargridfecha(dgvfacturas, mtxtbuscarfecha);
+            Datagrid.Buscargrid(dgvfacturas, Todos, 4, mtxtdesde, mtxthasta, Nombrecli, txtnombrecli);
         }
 
         private void mtxthasta_Leave(object sender, EventArgs e)
         {
-            Datagrid.Llenardatagrid(dgvfacturas, Personalizado, mtxtdesde, mtxthasta);
+            Datagrid.Llenardatagrid(dgvfacturas, Todos, 3, mtxtdesde, mtxthasta, Nombrecli, txtnombrecli);
         }
 
         private void txttipo_KeyUp(object sender, KeyEventArgs e)
         {
-            Datagrid.Buscargrid(dgvfacturas, txttipo, Tipo);
+            Datagrid.Buscargrid(dgvfacturas, Todos, 4, mtxtdesde, mtxthasta, Tipo, txttipo);
         }
 
         private void txtsucursal_KeyUp(object sender, KeyEventArgs e)
         {
-            Datagrid.Buscargrid(dgvfacturas, txtsucursal, Sucursal);
+            Datagrid.Buscargrid(dgvfacturas, Todos, 4, mtxtdesde, mtxthasta, Sucursal, txtsucursal);
         }
 
         private void txtnumero_KeyUp(object sender, KeyEventArgs e)
         {
-            Datagrid.Buscargrid(dgvfacturas, txtnumero, Numero);
+            Datagrid.Buscargrid(dgvfacturas, Todos, 4, mtxtdesde, mtxthasta, Numero, txtnumero);
         }
 
         private void mtxtbuscarfecha_TextChanged(object sender, EventArgs e)
         {
-            Datagrid.Buscargridfecha(dgvfacturas, mtxtbuscarfecha);
+            Datagrid.Buscargrid(dgvfacturas, Todos, 5, mtxtdesde, mtxthasta, Fecha, mtxtbuscarfecha);
+        }
+
+        private void dgvfacturas_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                Cargar_series C = new Cargar_series();
+                C.txtcliente.Text = dgvfacturas.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
+                C.txtfactura.Text = dgvfacturas.Rows[e.RowIndex].Cells["Sucursal"].Value.ToString() + "-" + dgvfacturas.Rows[e.RowIndex].Cells["Numero"].Value.ToString();
+                C.txtfecha.Text = dgvfacturas.Rows[e.RowIndex].Cells["Fecha"].Value.ToString();
+                C.ShowDialog();
+            }
+            
+            
+        }
+
+        private void btnsalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

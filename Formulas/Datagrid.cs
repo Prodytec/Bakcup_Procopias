@@ -15,26 +15,8 @@ namespace Formulas
         SqlDataAdapter da = new SqlDataAdapter();
         DataTable dt = new DataTable();
         SqlCommand cmd = new SqlCommand();
-        public void Llenardatagrid(DataGridView dgv, string Consulta)
-        {
-            try
-            {
 
-                da = new SqlDataAdapter(Consulta, cnn);
-                dt = new DataTable();
-                da.Fill(dt);
-                dgv.DataSource = dt;
-                cnn.Close();
-
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show("No se pudo llenar la tabla" + ex.ToString());
-            }
-        }
-
-        public void Llenardatagrid(DataGridView dgv, string Consulta, MaskedTextBox Desde, MaskedTextBox Hasta)
+        public void Llenardatagrid(DataGridView dgv, string Consulta, int Seleccion, MaskedTextBox Desde, MaskedTextBox Hasta, string Campo, TextBox Valor)
         {
             try
             {
@@ -45,10 +27,14 @@ namespace Formulas
                 DataSet ds = new DataSet();
 
                 da.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@Desde", Desde.Text.ToString());
-                da.SelectCommand.Parameters.AddWithValue("@Hasta", Hasta.Text.ToString());
+                da.SelectCommand.Parameters.AddWithValue("@Seleccion", Seleccion);
+                da.SelectCommand.Parameters.AddWithValue("@Campo", Campo);
+                da.SelectCommand.Parameters.AddWithValue("@valor", Valor.Text.ToString());
+                da.SelectCommand.Parameters.AddWithValue("@desde", Desde.Text.ToString());
+                da.SelectCommand.Parameters.AddWithValue("@hasta", Hasta.Text.ToString());
                 da.Fill(ds, "Consulta");
                 cnn.Close();
+
 
                 dgv.DataSource = ds;
                 dgv.DataMember = "Consulta";
@@ -61,38 +47,54 @@ namespace Formulas
             }
         }
 
-        public void Buscargrid(DataGridView dgv, TextBox txtbox, string nombre)
+        public void Buscargrid(DataGridView dgv, string Consulta, int Seleccion, MaskedTextBox Desde, MaskedTextBox Hasta, string Campo, TextBox Valor)
         {
-            string consulta = "select Cli.nombre as Nombre ,Imag.Fecha as Fecha, Imag.Idtipocomprobante as Tipo, Imag.Sucursal as Sucursal, Imag.Numero as Numero from ImagenFcCab as Imag left join Clientes as Cli on Imag.Idcliente = Cli.idcliente where " + "" + nombre.Trim() + "" + " like('" + txtbox.Text.Trim() + "%')";
             try
             {
-                cnn.Open();
-                cmd = new SqlCommand(consulta, cnn);
-                cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
+
+                da = new SqlDataAdapter(Consulta, cnn);
+                dt = new DataTable();
                 dgv.DataSource = dt;
+                DataSet ds = new DataSet();
+                da.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@Seleccion", Seleccion);
+                da.SelectCommand.Parameters.AddWithValue("@Campo", Campo);
+                da.SelectCommand.Parameters.AddWithValue("@valor", Valor.Text.ToString());
+                da.SelectCommand.Parameters.AddWithValue("@Desde", Desde.Text.ToString());
+                da.SelectCommand.Parameters.AddWithValue("@Hasta", Hasta.Text.ToString());
+                da.Fill(ds, "Consulta");
                 cnn.Close();
+                dgv.DataSource = ds;
+                dgv.DataMember = "Consulta";
             }
             catch (Exception ex)
             {
                 MessageBox.Show("No se pudo llenar la tabla" + ex.ToString());
             }
         }
-        public void Buscargridfecha(DataGridView dgv, MaskedTextBox txtbox)
+        public void Buscargrid(DataGridView dgv, string Consulta, int Seleccion, MaskedTextBox Desde, MaskedTextBox Hasta, string Campo, MaskedTextBox Valor)
         {
-            string consulta = "select Cli.nombre as Nombre ,Imag.Fecha as Fecha, Imag.Idtipocomprobante as Tipo, Imag.Sucursal as Sucursal, Imag.Numero as Numero from ImagenFcCab as Imag left join Clientes as Cli on Imag.Idcliente = Cli.idcliente where Imag.Fecha like('" + txtbox.Text.Trim() + "%')";
             try
             {
-                cnn.Open();
-                cmd = new SqlCommand(consulta, cnn);
-                cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
+                da = new SqlDataAdapter(Consulta, cnn);
+                dt = new DataTable();
+                dgv.DataSource = dt;
+                DataSet ds = new DataSet();
+                da.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@Seleccion", Seleccion);
+                da.SelectCommand.Parameters.AddWithValue("@Campo", Campo);
+                da.SelectCommand.Parameters.AddWithValue("@valor", Valor.Text.ToString());
+                da.SelectCommand.Parameters.AddWithValue("@Desde", Desde.Text.ToString());
+                da.SelectCommand.Parameters.AddWithValue("@Hasta", Hasta.Text.ToString());
+                da.Fill(ds, "Consulta");
                 dgv.DataSource = dt;
                 cnn.Close();
+                dgv.DataSource = ds;
+                dgv.DataMember = "Consulta";
+                //dgv.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                //dgv.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                //dgv.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                //dgv.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             }
             catch (Exception ex)
             {
