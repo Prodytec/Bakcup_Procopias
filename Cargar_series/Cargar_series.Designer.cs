@@ -29,6 +29,7 @@ namespace Cargar_series
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvfacturas = new System.Windows.Forms.DataGridView();
             this.lblcliente = new System.Windows.Forms.Label();
             this.lblfactura = new System.Windows.Forms.Label();
@@ -45,11 +46,21 @@ namespace Cargar_series
             this.dgvfacturas.AllowUserToDeleteRows = false;
             this.dgvfacturas.AllowUserToOrderColumns = true;
             this.dgvfacturas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvfacturas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvfacturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvfacturas.Location = new System.Drawing.Point(12, 111);
             this.dgvfacturas.Name = "dgvfacturas";
+            this.dgvfacturas.ReadOnly = true;
             this.dgvfacturas.Size = new System.Drawing.Size(776, 327);
             this.dgvfacturas.TabIndex = 5;
+            this.dgvfacturas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvfacturas_CellClick);
             // 
             // lblcliente
             // 
@@ -86,7 +97,7 @@ namespace Cargar_series
             this.txtcliente.Enabled = false;
             this.txtcliente.Location = new System.Drawing.Point(90, 12);
             this.txtcliente.Name = "txtcliente";
-            this.txtcliente.Size = new System.Drawing.Size(248, 20);
+            this.txtcliente.Size = new System.Drawing.Size(210, 20);
             this.txtcliente.TabIndex = 9;
             // 
             // txtfactura
@@ -119,7 +130,9 @@ namespace Cargar_series
             this.Controls.Add(this.lblcliente);
             this.Controls.Add(this.dgvfacturas);
             this.Name = "Cargar_series";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cargar series";
+            this.Load += new System.EventHandler(this.Cargar_series_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvfacturas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

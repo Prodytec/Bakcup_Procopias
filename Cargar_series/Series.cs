@@ -65,7 +65,7 @@ namespace Cargar_series
 
         private void txtnombrecli_KeyUp(object sender, KeyEventArgs e)
         {
-            Datagrid.Buscargrid(dgvfacturas, Todos, 4, mtxtdesde, mtxthasta, Nombrecli, txtnombrecli);
+            Datagrid.Llenardatagrid(dgvfacturas, Todos, 4, mtxtdesde, mtxthasta, Nombrecli, txtnombrecli);
         }
 
         private void mtxthasta_Leave(object sender, EventArgs e)
@@ -75,17 +75,17 @@ namespace Cargar_series
 
         private void txttipo_KeyUp(object sender, KeyEventArgs e)
         {
-            Datagrid.Buscargrid(dgvfacturas, Todos, 4, mtxtdesde, mtxthasta, Tipo, txttipo);
+            Datagrid.Llenardatagrid(dgvfacturas, Todos, 4, mtxtdesde, mtxthasta, Tipo, txttipo);
         }
 
         private void txtsucursal_KeyUp(object sender, KeyEventArgs e)
         {
-            Datagrid.Buscargrid(dgvfacturas, Todos, 4, mtxtdesde, mtxthasta, Sucursal, txtsucursal);
+            Datagrid.Llenardatagrid(dgvfacturas, Todos, 4, mtxtdesde, mtxthasta, Sucursal, txtsucursal);
         }
 
         private void txtnumero_KeyUp(object sender, KeyEventArgs e)
         {
-            Datagrid.Buscargrid(dgvfacturas, Todos, 4, mtxtdesde, mtxthasta, Numero, txtnumero);
+            Datagrid.Llenardatagrid(dgvfacturas, Todos, 4, mtxtdesde, mtxthasta, Numero, txtnumero);
         }
 
         private void mtxtbuscarfecha_TextChanged(object sender, EventArgs e)

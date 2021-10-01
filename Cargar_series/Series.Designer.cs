@@ -29,6 +29,7 @@ namespace Cargar_series
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cbfiltro = new System.Windows.Forms.ComboBox();
             this.dgvfacturas = new System.Windows.Forms.DataGridView();
             this.txtnombrecli = new System.Windows.Forms.TextBox();
@@ -61,6 +62,14 @@ namespace Cargar_series
             this.dgvfacturas.AllowUserToOrderColumns = true;
             this.dgvfacturas.AllowUserToResizeRows = false;
             this.dgvfacturas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvfacturas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvfacturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvfacturas.Location = new System.Drawing.Point(12, 111);
             this.dgvfacturas.Name = "dgvfacturas";
@@ -192,13 +201,13 @@ namespace Cargar_series
         private System.Windows.Forms.DataGridView dgvfacturas;
         private System.Windows.Forms.TextBox txtnombrecli;
         private System.Windows.Forms.TextBox txttipo;
-        private System.Windows.Forms.TextBox txtsucursal;
-        private System.Windows.Forms.TextBox txtnumero;
         private System.Windows.Forms.Label lbldesde;
         private System.Windows.Forms.Label lblhasta;
         private System.Windows.Forms.MaskedTextBox mtxthasta;
         private System.Windows.Forms.MaskedTextBox mtxtdesde;
         private System.Windows.Forms.MaskedTextBox mtxtbuscarfecha;
         private System.Windows.Forms.Button btnsalir;
+        private System.Windows.Forms.TextBox txtsucursal;
+        private System.Windows.Forms.TextBox txtnumero;
     }
 }
