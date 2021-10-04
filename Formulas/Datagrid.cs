@@ -52,6 +52,34 @@ namespace Formulas
             }
         }
 
+        public void Llenardatagrid(DataGridView dgv, string Consulta, int Seleccion, string cell)
+        {
+            try
+            {
+                da = new SqlDataAdapter(Consulta, cnn);
+                dt = new DataTable();
+                dgv.DataSource = dt;
+                DataSet ds = new DataSet();
+
+                da.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@Seleccion", Seleccion);
+                da.SelectCommand.Parameters.AddWithValue("@serie", cell);
+
+                dgv.DataSource = dt;
+                da.Fill(ds, "Consulta");
+                cnn.Close();
+
+
+                dgv.DataSource = ds;
+                dgv.DataMember = "Consulta";
+            }
+            catch
+            {
+                MessageBox.Show("No se puede correr el script");
+            }
+        }
+
+
         public void Llenardatagrid(DataGridView dgv, string Consulta, string Sucursal, string Numero, string Fecha)
         {
             try
@@ -74,8 +102,13 @@ namespace Formulas
                 dgv.DataMember = "Consulta";
                 DataGridViewButtonColumn btngrid = new DataGridViewButtonColumn();
                 btngrid.Name = "Boton";
-                btngrid.HeaderText = "Boton";
+                btngrid.HeaderText = "Ingresar series";
                 dgv.Columns.Add(btngrid);
+
+                dgv.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                dgv.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                dgv.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dgv.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             }
 
             catch (Exception ex)

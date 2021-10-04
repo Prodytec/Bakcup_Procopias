@@ -37,6 +37,7 @@ namespace Cargar_series
             this.txtcliente = new System.Windows.Forms.TextBox();
             this.txtfactura = new System.Windows.Forms.TextBox();
             this.txtfecha = new System.Windows.Forms.TextBox();
+            this.btnsalir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvfacturas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,7 +46,8 @@ namespace Cargar_series
             this.dgvfacturas.AllowUserToAddRows = false;
             this.dgvfacturas.AllowUserToDeleteRows = false;
             this.dgvfacturas.AllowUserToOrderColumns = true;
-            this.dgvfacturas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvfacturas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvfacturas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -58,7 +60,8 @@ namespace Cargar_series
             this.dgvfacturas.Location = new System.Drawing.Point(12, 111);
             this.dgvfacturas.Name = "dgvfacturas";
             this.dgvfacturas.ReadOnly = true;
-            this.dgvfacturas.Size = new System.Drawing.Size(776, 327);
+            this.dgvfacturas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvfacturas.Size = new System.Drawing.Size(776, 301);
             this.dgvfacturas.TabIndex = 5;
             this.dgvfacturas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvfacturas_CellClick);
             // 
@@ -117,11 +120,22 @@ namespace Cargar_series
             this.txtfecha.Size = new System.Drawing.Size(103, 20);
             this.txtfecha.TabIndex = 11;
             // 
+            // btnsalir
+            // 
+            this.btnsalir.Location = new System.Drawing.Point(704, 418);
+            this.btnsalir.Name = "btnsalir";
+            this.btnsalir.Size = new System.Drawing.Size(84, 23);
+            this.btnsalir.TabIndex = 12;
+            this.btnsalir.Text = "Salir";
+            this.btnsalir.UseVisualStyleBackColor = true;
+            this.btnsalir.Click += new System.EventHandler(this.btnsalir_Click);
+            // 
             // Cargar_series
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnsalir);
             this.Controls.Add(this.txtfecha);
             this.Controls.Add(this.txtfactura);
             this.Controls.Add(this.txtcliente);
@@ -148,5 +162,6 @@ namespace Cargar_series
         public System.Windows.Forms.TextBox txtcliente;
         public System.Windows.Forms.TextBox txtfactura;
         public System.Windows.Forms.TextBox txtfecha;
+        private System.Windows.Forms.Button btnsalir;
     }
 }

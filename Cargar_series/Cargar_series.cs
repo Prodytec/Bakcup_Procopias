@@ -44,5 +44,10 @@ namespace Cargar_series
                 I.ShowDialog();
             }
         }
+
+        private void btnsalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
