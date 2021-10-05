@@ -44,6 +44,7 @@ namespace Formulas
                 dgv.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 dgv.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dgv.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dgv.Columns[5].Visible = false;
             }
 
             catch (Exception ex)
@@ -52,30 +53,54 @@ namespace Formulas
             }
         }
 
-        public void Llenardatagrid(DataGridView dgv, string Consulta, int Seleccion, string cell)
+        public void Grabar(DataGridView dgv, string Consulta, int Seleccion, string serie, int item, int idimagen)
         {
             try
             {
-                da = new SqlDataAdapter(Consulta, cnn);
-                dt = new DataTable();
-                dgv.DataSource = dt;
-                DataSet ds = new DataSet();
 
-                da.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@Seleccion", Seleccion);
-                da.SelectCommand.Parameters.AddWithValue("@serie", cell);
+                if(Seleccion == 1)
+                {
 
-                dgv.DataSource = dt;
-                da.Fill(ds, "Consulta");
-                cnn.Close();
+                    da = new SqlDataAdapter(Consulta, cnn);
+                    dt = new DataTable();
+                   
+                    
+                    //dgv.DataSource = dt;
+                    DataSet ds = new DataSet();
 
+                    da.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                    da.SelectCommand.Parameters.AddWithValue("@Seleccion", Seleccion);
+                    da.SelectCommand.Parameters.AddWithValue("@serie", serie);
+                    da.SelectCommand.Parameters.AddWithValue("@item", item);
+                    da.SelectCommand.Parameters.AddWithValue("@idimagenc", idimagen);
 
-                dgv.DataSource = ds;
-                dgv.DataMember = "Consulta";
+                    //dgv.DataSource = dt;
+                    da.Fill(ds, "Sp_series");
+                    dgv.DataSource = ds;
+                    dgv.DataMember = "Sp_Series";
+                    //cnn.Close();
+                }
+                else
+                {
+                    // connection();  
+                    cnn.Open();
+                    string query = "sp_series";         //Stored Procedure name   
+                    SqlCommand com = new SqlCommand(query, cnn);  //creating  SqlCommand  object  
+                    com.CommandType = CommandType.StoredProcedure;  //here we declaring command type as stored Procedure  
+
+                    com.Parameters.AddWithValue("@Seleccion", Seleccion);        //first Name  
+                    com.Parameters.AddWithValue("@Serie ", serie);     //middle Name  
+                    com.Parameters.AddWithValue("@Item ", item);
+                    com.Parameters.AddWithValue("@idimagenc ", idimagen);//Last Name
+                                                                         //
+                    com.ExecuteNonQuery();                     //executing the sqlcommand  
+                    cnn.Close();
+                }
+
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("No se puede correr el script");
+                MessageBox.Show("No se puede correr el script" + ex.ToString());
             }
         }
 
@@ -106,9 +131,12 @@ namespace Formulas
                 dgv.Columns.Add(btngrid);
 
                 dgv.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-                dgv.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-                dgv.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dgv.Columns[1].Visible = false;
+                dgv.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
                 dgv.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dgv.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+                
             }
 
             catch (Exception ex)
@@ -141,6 +169,7 @@ namespace Formulas
                 dgv.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 dgv.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dgv.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dgv.Columns[5].Visible = false;
             }
             catch (Exception ex)
             {

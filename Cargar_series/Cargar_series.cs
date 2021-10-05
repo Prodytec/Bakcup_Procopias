@@ -21,6 +21,7 @@ namespace Cargar_series
         Datagrid Datagrid = new Datagrid();
         Ingresar I = new Ingresar();
         string Consulta = "ITEMS_SERIES_PROCOPIAS";
+        public int idimagen;
         
 
         private void Cargar_series_Load(object sender, EventArgs e)
@@ -39,8 +40,10 @@ namespace Cargar_series
 
         private void dgvfacturas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 3) 
+            if (e.ColumnIndex == 4) 
             {
+                I.idimagen = idimagen;
+                I.item = Convert.ToInt32(dgvfacturas.Rows[e.RowIndex].Cells["item"].Value.ToString());
                 I.ShowDialog();
             }
         }

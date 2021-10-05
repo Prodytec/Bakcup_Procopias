@@ -101,6 +101,7 @@ namespace Cargar_series
                 C.txtcliente.Text = dgvfacturas.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
                 C.txtfactura.Text = dgvfacturas.Rows[e.RowIndex].Cells["Sucursal"].Value.ToString() + "-" + dgvfacturas.Rows[e.RowIndex].Cells["Numero"].Value.ToString();
                 C.txtfecha.Text = dgvfacturas.Rows[e.RowIndex].Cells["Fecha"].Value.ToString();
+                C.idimagen = Convert.ToInt32(dgvfacturas.Rows[e.RowIndex].Cells["idimagen"].Value.ToString());
                 C.ShowDialog();
             }
             

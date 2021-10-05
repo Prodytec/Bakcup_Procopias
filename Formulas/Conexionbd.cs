@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Formulas
 {
-    class Conexionbd
+    public class Conexionbd
     {
         public sealed class DbConnection
         {
