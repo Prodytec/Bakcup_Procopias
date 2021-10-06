@@ -29,3 +29,7 @@ C:\Users\DELL\Desktop\Visual Studio\Series procopias\Bakcup_Procopias\Cargar_ser
 C:\Users\DELL\Desktop\Visual Studio\Series procopias\Bakcup_Procopias\Cargar_series\obj\Debug\Cargar_series.csproj.CopyComplete
 C:\Users\DELL\Desktop\Visual Studio\Series procopias\Bakcup_Procopias\Cargar_series\obj\Debug\Cargar_series.Cargar_series.resources
 C:\Users\DELL\Desktop\Visual Studio\Series procopias\Bakcup_Procopias\Cargar_series\obj\Debug\Cargar_series.Ingresar.resources
+C:\Users\DELL\Desktop\Visual Studio\Series procopias\Bakcup_Procopias\Cargar_series\bin\Debug\Cargar_series.exe.manifest
+C:\Users\DELL\Desktop\Visual Studio\Series procopias\Bakcup_Procopias\Cargar_series\bin\Debug\Cargar_series.application
+C:\Users\DELL\Desktop\Visual Studio\Series procopias\Bakcup_Procopias\Cargar_series\obj\Debug\Cargar_series.exe.manifest
+C:\Users\DELL\Desktop\Visual Studio\Series procopias\Bakcup_Procopias\Cargar_series\obj\Debug\Cargar_series.application
