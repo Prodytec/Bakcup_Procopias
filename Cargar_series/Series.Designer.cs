@@ -78,6 +78,7 @@ namespace Cargar_series
             this.dgvfacturas.Size = new System.Drawing.Size(776, 301);
             this.dgvfacturas.TabIndex = 4;
             this.dgvfacturas.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvfacturas_CellContentDoubleClick);
+            this.dgvfacturas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvfacturas_CellDoubleClick);
             // 
             // txtnombrecli
             // 

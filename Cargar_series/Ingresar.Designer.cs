@@ -49,6 +49,7 @@ namespace Cargar_series
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv.Size = new System.Drawing.Size(201, 214);
             this.dgv.TabIndex = 0;
+            this.dgv.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellLeave);
             // 
             // btngrabar
             // 
@@ -91,9 +92,8 @@ namespace Cargar_series
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgv;
         private System.Windows.Forms.Button btngrabar;
         private System.Windows.Forms.Button btnsalir;
+        public System.Windows.Forms.DataGridView dgv;
     }
 }

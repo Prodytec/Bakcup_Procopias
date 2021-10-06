@@ -57,8 +57,7 @@ namespace Formulas
         {
             try
             {
-
-                if(Seleccion == 1)
+                if (Seleccion == 1)
                 {
 
                     da = new SqlDataAdapter(Consulta, cnn);
@@ -84,23 +83,23 @@ namespace Formulas
                 {
                     // connection();  
                     cnn.Open();
+                    var transaccion = cnn.BeginTransaction();
                     string query = "sp_series";         //Stored Procedure name   
-                    SqlCommand com = new SqlCommand(query, cnn);  //creating  SqlCommand  object  
+                    SqlCommand com = new SqlCommand(query, cnn, transaccion);  //creating  SqlCommand  object  
                     com.CommandType = CommandType.StoredProcedure;  //here we declaring command type as stored Procedure  
 
                     com.Parameters.AddWithValue("@Seleccion", Seleccion);        //first Name  
                     com.Parameters.AddWithValue("@Serie ", serie);     //middle Name  
                     com.Parameters.AddWithValue("@Item ", item);
-                    com.Parameters.AddWithValue("@idimagenc ", idimagen);//Last Name
-                                                                         //
-                    com.ExecuteNonQuery();                     //executing the sqlcommand  
+                    com.Parameters.AddWithValue("@idimagenc ", idimagen);//Last Name                               //
+                    com.ExecuteNonQuery();
+                    transaccion.Commit();
                     cnn.Close();
                 }
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se puede correr el script" + ex.ToString());
+                MessageBox.Show("No se puedo grabar la serie" + ex.ToString());
             }
         }
 
@@ -175,6 +174,25 @@ namespace Formulas
             {
                 MessageBox.Show("No se pudo llenar la tabla" + ex.ToString());
             }
+        }
+        public void serierepetida(string serie)
+        {
+            string query = "Select COUNT(*) from SERIESARTICULOS WHERE SERIE = @param";
+            SqlCommand cmd = new SqlCommand(query, cnn);
+            cmd.Parameters.AddWithValue("@param", serie);
+            cnn.Open();
+            int cant = Convert.ToInt32(cmd.ExecuteScalar());
+
+            if (cant == 0)
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("La serie que intenta ingresar ya se encuentra registrada");
+                return;
+            }
+            cnn.Close();
         }
     }
 }

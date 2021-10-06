@@ -95,6 +95,18 @@ namespace Cargar_series
 
         private void dgvfacturas_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+            
+            
+        }
+
+        private void btnsalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void dgvfacturas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
             if (e.RowIndex >= 0)
             {
                 Cargar_series C = new Cargar_series();
@@ -104,13 +116,6 @@ namespace Cargar_series
                 C.idimagen = Convert.ToInt32(dgvfacturas.Rows[e.RowIndex].Cells["idimagen"].Value.ToString());
                 C.ShowDialog();
             }
-            
-            
-        }
-
-        private void btnsalir_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

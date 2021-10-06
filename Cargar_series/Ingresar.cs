@@ -24,6 +24,7 @@ namespace Cargar_series
         Datagrid Datagrid = new Datagrid();
         public int idimagen;
         public int item;
+        public int cantidad;
         string Sql = "SP_SERIES";
         string Valor = "series";
 
@@ -45,11 +46,12 @@ namespace Cargar_series
                 SqlCommand cmd = new SqlCommand("delete from SERIESARTICULOS where IDIMAGEN =" + idimagen + "and ITEM =" + item + "", cnn);
                 cmd.ExecuteNonQuery();
                 cnn.Close();
-                for (int fila = 0; fila < dgv.Rows.Count - 1; fila++)
+                for (int fila = 0; fila < dgv.Rows.Count; fila++)
                 {
                     for (int col = 0; col < dgv.Rows[fila].Cells.Count; col++)
                     {
                         string valor = dgv.Rows[fila].Cells[col].Value.ToString();
+                        Datagrid.serierepetida(valor);
                         Datagrid.Grabar(dgv, Sql, 2, valor, item, idimagen);
                     }
                 }
@@ -61,6 +63,14 @@ namespace Cargar_series
                 MessageBox.Show("No se pudo completar la grabacion correctamente:" + ex.ToString());
             }
             
+        }
+
+        private void dgv_CellLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.dgv.Rows.Count >= cantidad)
+            {
+                this.dgv.AllowUserToAddRows = false;
+            }
         }
     }
 }

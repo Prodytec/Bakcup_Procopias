@@ -38,19 +38,29 @@ namespace Cargar_series
             txtfactura.Text = Sucursal + "-" + Numero;
         }
 
-        private void dgvfacturas_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == 4) 
-            {
-                I.idimagen = idimagen;
-                I.item = Convert.ToInt32(dgvfacturas.Rows[e.RowIndex].Cells["item"].Value.ToString());
-                I.ShowDialog();
-            }
-        }
-
         private void btnsalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dgvfacturas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 5)
+            {
+                I.idimagen = idimagen;
+                I.item = Convert.ToInt32(dgvfacturas.Rows[e.RowIndex].Cells["item"].Value.ToString());
+                I.cantidad = Convert.ToInt32(dgvfacturas.Rows[e.RowIndex].Cells["Cantidad pedida"].Value.ToString());
+                if(dgvfacturas.Rows[e.RowIndex].Cells["Cantidad pedida"].Value.ToString() == dgvfacturas.Rows[e.RowIndex].Cells["Cantidad escaneada"].Value.ToString())
+                {
+                    I.dgv.AllowUserToAddRows = false;
+                    I.ShowDialog();
+                }
+                else
+                {
+                    I.ShowDialog();
+                }
+                
+            }
         }
     }
 }
