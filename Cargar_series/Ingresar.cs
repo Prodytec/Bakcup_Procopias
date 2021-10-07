@@ -23,36 +23,42 @@ namespace Cargar_series
         SqlConnection cnn = Conexionbd.DbConnection.getDBConnection();
         Datagrid Datagrid = new Datagrid();
         public int idimagen;
-        public int item;
         public int cantidad;
+        public string codigoart;
         string Sql = "SP_SERIES";
         string Valor = "series";
 
         private void btnsalir_Click(object sender, EventArgs e)
         {
+            dgv.AllowUserToAddRows = true;
             this.Close();
         }
 
         private void Ingresar_Load(object sender, EventArgs e)
         {
-            Datagrid.Grabar(dgv, Sql,1, Valor, item, idimagen);
+            Datagrid.Grabar(dgv, Sql,1, Valor, codigoart, idimagen);
+            dgv.AllowUserToAddRows = true;
         }
 
         private void btngrabar_Click(object sender, EventArgs e)
         {
             try
             {
+                this.dgv.AllowUserToAddRows = false;
                 cnn.Open();
-                SqlCommand cmd = new SqlCommand("delete from SERIESARTICULOS where IDIMAGEN =" + idimagen + "and ITEM =" + item + "", cnn);
+                SqlCommand cmd = new SqlCommand("delete from SERIESARTICULOS where IDIMAGEN =" + idimagen + "and CODIGOART =" + codigoart + "", cnn);
                 cmd.ExecuteNonQuery();
                 cnn.Close();
                 for (int fila = 0; fila < dgv.Rows.Count; fila++)
                 {
                     for (int col = 0; col < dgv.Rows[fila].Cells.Count; col++)
                     {
-                        string valor = dgv.Rows[fila].Cells[col].Value.ToString();
-                        Datagrid.serierepetida(valor);
-                        Datagrid.Grabar(dgv, Sql, 2, valor, item, idimagen);
+                        if (this.dgv.Rows[fila].Cells[col].Value.ToString() != null)
+                        {
+                            string valor = this.dgv.Rows[fila].Cells[col].Value.ToString();
+                            Datagrid.serierepetida(valor);
+                            Datagrid.Grabar(dgv, Sql, 2, valor, codigoart, idimagen);
+                        }
                     }
                 }
                 MessageBox.Show("Se completo la grabacion correctamente");
@@ -67,7 +73,7 @@ namespace Cargar_series
 
         private void dgv_CellLeave(object sender, DataGridViewCellEventArgs e)
         {
-            if (this.dgv.Rows.Count >= cantidad)
+            if (this.dgv.Rows.Count - 1 == cantidad)
             {
                 this.dgv.AllowUserToAddRows = false;
             }

@@ -4,3 +4,11 @@ C:\Users\DELL\Desktop\Visual Studio\Series procopias\Bakcup_Procopias\Formulas\o
 C:\Users\DELL\Desktop\Visual Studio\Series procopias\Bakcup_Procopias\Formulas\obj\Debug\Formulas.csproj.CoreCompileInputs.cache
 C:\Users\DELL\Desktop\Visual Studio\Series procopias\Bakcup_Procopias\Formulas\obj\Debug\Formulas.dll
 C:\Users\DELL\Desktop\Visual Studio\Series procopias\Bakcup_Procopias\Formulas\obj\Debug\Formulas.pdb
+C:\Users\DELL\Desktop\Visual Studio\Series procopias\Bakcup_Procopias\Formulas\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\DELL\Desktop\Visual Studio\Series procopias\Bakcup_Procopias\Formulas\bin\Debug\SpreadsheetLight.dll
+C:\Users\DELL\Desktop\Visual Studio\Series procopias\Bakcup_Procopias\Formulas\bin\Debug\System.Drawing.Common.dll
+C:\Users\DELL\Desktop\Visual Studio\Series procopias\Bakcup_Procopias\Formulas\bin\Debug\System.IO.Packaging.dll
+C:\Users\DELL\Desktop\Visual Studio\Series procopias\Bakcup_Procopias\Formulas\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\DELL\Desktop\Visual Studio\Series procopias\Bakcup_Procopias\Formulas\bin\Debug\SpreadsheetLight.xml
+C:\Users\DELL\Desktop\Visual Studio\Series procopias\Bakcup_Procopias\Formulas\bin\Debug\System.IO.Packaging.xml
+C:\Users\DELL\Desktop\Visual Studio\Series procopias\Bakcup_Procopias\Formulas\obj\Debug\Formulas.csproj.CopyComplete

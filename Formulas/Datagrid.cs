@@ -53,7 +53,7 @@ namespace Formulas
             }
         }
 
-        public void Grabar(DataGridView dgv, string Consulta, int Seleccion, string serie, int item, int idimagen)
+        public void Grabar(DataGridView dgv, string Consulta, int Seleccion, string serie, string codigoart, int idimagen)
         {
             try
             {
@@ -70,7 +70,7 @@ namespace Formulas
                     da.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
                     da.SelectCommand.Parameters.AddWithValue("@Seleccion", Seleccion);
                     da.SelectCommand.Parameters.AddWithValue("@serie", serie);
-                    da.SelectCommand.Parameters.AddWithValue("@item", item);
+                    da.SelectCommand.Parameters.AddWithValue("@codigoart", codigoart);
                     da.SelectCommand.Parameters.AddWithValue("@idimagenc", idimagen);
 
                     //dgv.DataSource = dt;
@@ -90,7 +90,7 @@ namespace Formulas
 
                     com.Parameters.AddWithValue("@Seleccion", Seleccion);        //first Name  
                     com.Parameters.AddWithValue("@Serie ", serie);     //middle Name  
-                    com.Parameters.AddWithValue("@Item ", item);
+                    com.Parameters.AddWithValue("@codigoart", codigoart);
                     com.Parameters.AddWithValue("@idimagenc ", idimagen);//Last Name                               //
                     com.ExecuteNonQuery();
                     transaccion.Commit();
@@ -194,5 +194,69 @@ namespace Formulas
             }
             cnn.Close();
         }
+
+        public void Cargarexcel(MaskedTextBox Desdef, MaskedTextBox Hastaf, DataGridView datagrid, TextBox Desdep, TextBox Hastap)
+        {
+            //llamo al store
+            string store;
+            store = "SP_EXPORTAR_EXCEL";
+            SqlDataAdapter da = new SqlDataAdapter(store, cnn);
+            DataSet ds = new DataSet();
+
+            //parametros
+            da.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            da.SelectCommand.Parameters.AddWithValue("@desdef", Desdef.Text.ToString());
+            da.SelectCommand.Parameters.AddWithValue("@hastaf", Hastaf.Text.ToString());
+            da.SelectCommand.Parameters.AddWithValue("@desdep", Desdep.Text.ToString());
+            da.SelectCommand.Parameters.AddWithValue("@hastap", Hastap.Text.ToString());
+            da.Fill(ds, "store");
+            cnn.Close();
+
+            //mostrar en tabla
+            datagrid.DataSource = ds;
+            datagrid.DataMember = "store";
+
+        }
+
+        public void ExportarDataGridViewExcel(DataGridView grd)
+        {
+            SaveFileDialog fichero = new SaveFileDialog();
+            fichero.Filter = "Excel (*.xls)|*.xls";
+            if (fichero.ShowDialog() == DialogResult.OK)
+            {
+                Microsoft.Office.Interop.Excel.Application aplicacion;
+                Microsoft.Office.Interop.Excel.Workbook libros_trabajo;
+                Microsoft.Office.Interop.Excel.Worksheet hoja_trabajo;
+                aplicacion = new Microsoft.Office.Interop.Excel.Application();
+                libros_trabajo = aplicacion.Workbooks.Add();
+                hoja_trabajo = (Microsoft.Office.Interop.Excel.Worksheet)libros_trabajo.Worksheets.get_Item(1);
+                //Recorremos el DataGridView rellenando la hoja de trabajo
+                //For para el titulo
+                for (int i = 1; i < grd.Columns.Count + 1; i++)
+                {
+                    hoja_trabajo.Cells[1, i] = grd.Columns[i - 1].HeaderText;
+                }
+                //For para tabla
+                for (int i = 0; i < grd.Rows.Count - 1; i++)
+                {
+                    for (int j = 0; j < grd.Columns.Count; j++)
+                    {
+                        if (grd.Rows[i].Cells[j].Value != null)
+                        {
+                            hoja_trabajo.Cells[i + 2, j + 1] = grd.Rows[i].Cells[j].Value.ToString();
+                        }
+                        else
+                        {
+                            hoja_trabajo.Cells[i + 2, j + 1] = "";
+                        }
+                    }
+                }
+                libros_trabajo.SaveAs(fichero.FileName, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal);
+                libros_trabajo.Close(true);
+                aplicacion.Quit();
+                MessageBox.Show("La exportacion fue exitosa");
+            }
+        }
+
     }
 }
