@@ -56,7 +56,7 @@ namespace Cargar_series
                         if (this.dgv.Rows[fila].Cells[col].Value.ToString() != null)
                         {
                             string valor = this.dgv.Rows[fila].Cells[col].Value.ToString();
-                            Datagrid.serierepetida(valor);
+                            //Datagrid.serierepetida(valor);
                             Datagrid.Grabar(dgv, Sql, 2, valor, codigoart, idimagen);
                         }
                     }
