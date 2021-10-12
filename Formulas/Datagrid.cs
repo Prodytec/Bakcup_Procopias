@@ -195,7 +195,7 @@ namespace Formulas
             cnn.Close();
         }
 
-        public void Cargarexcel(MaskedTextBox Desdef, MaskedTextBox Hastaf, DataGridView datagrid, TextBox Desdep, TextBox Hastap)
+        public void Cargarexcel(MaskedTextBox Desdef, MaskedTextBox Hastaf, DataGridView datagrid, ComboBox combo)
         {
             //llamo al store
             string store;
@@ -207,8 +207,8 @@ namespace Formulas
             da.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
             da.SelectCommand.Parameters.AddWithValue("@desdef", Desdef.Text.ToString());
             da.SelectCommand.Parameters.AddWithValue("@hastaf", Hastaf.Text.ToString());
-            da.SelectCommand.Parameters.AddWithValue("@desdep", Desdep.Text.ToString());
-            da.SelectCommand.Parameters.AddWithValue("@hastap", Hastap.Text.ToString());
+            da.SelectCommand.Parameters.AddWithValue("@desdep", combo.SelectedValue.ToString());
+            da.SelectCommand.Parameters.AddWithValue("@hastap", combo.SelectedValue.ToString());
             da.Fill(ds, "store");
             cnn.Close();
 
@@ -258,5 +258,17 @@ namespace Formulas
             }
         }
 
+        public void llenarcombo(ComboBox combo)
+        {
+            string consulta = "select Nombre, idproveedor from proveedores order by Nombre";
+
+            da = new SqlDataAdapter(consulta, cnn);
+            DataTable lista = new DataTable();
+            da.Fill(lista);
+
+            combo.DisplayMember = "Nombre";
+            combo.ValueMember = "idproveedor";
+            combo.DataSource = lista;
+        }
     }
 }

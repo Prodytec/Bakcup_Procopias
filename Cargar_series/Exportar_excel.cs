@@ -27,12 +27,17 @@ namespace Cargar_series
 
         private void Procesar_Click(object sender, EventArgs e)
         {
-            D.Cargarexcel(txtdesdef, txthastaf, dataGridView1, txtdesdep, txthastap);
+            D.Cargarexcel(txtdesdef, txthastaf, dataGridView1, cmbproveedor);
         }
 
         private void btnexportar_Click(object sender, EventArgs e)
         {
             D.ExportarDataGridViewExcel(dataGridView1);
+        }
+
+        private void Exportar_excel_Load(object sender, EventArgs e)
+        {
+            D.llenarcombo(cmbproveedor);
         }
     }
 }
