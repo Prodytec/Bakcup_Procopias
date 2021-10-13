@@ -56,12 +56,10 @@ namespace Cargar_series
                         if (this.dgv.Rows[fila].Cells[col].Value.ToString() != null)
                         {
                             string valor = this.dgv.Rows[fila].Cells[col].Value.ToString();
-                            //Datagrid.serierepetida(valor);
                             Datagrid.Grabar(dgv, Sql, 2, valor, codigoart, idimagen);
                         }
                     }
                 }
-                MessageBox.Show("Se completo la grabacion correctamente");
                 this.Close();
             }
             catch(Exception ex)
@@ -76,6 +74,7 @@ namespace Cargar_series
             if (this.dgv.Rows.Count - 1 == cantidad)
             {
                 this.dgv.AllowUserToAddRows = false;
+                MessageBox.Show("No se pueden cargar mas series");
             }
         }
     }

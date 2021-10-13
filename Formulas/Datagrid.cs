@@ -83,6 +83,21 @@ namespace Formulas
                 {
                     // connection();  
                     cnn.Open();
+                    string repetido = "Select COUNT(*) from SERIESARTICULOS WHERE idimagen = idimagen and SERIE = @param ";
+                    SqlCommand cmd = new SqlCommand(repetido, cnn);
+                    cmd.Parameters.AddWithValue("@param", serie);
+                    int cant = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    if (cant == 0)
+                    {
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("La serie que intenta ingresar ya se encuentra registrada");
+                        cnn.Close();
+                        return;
+                    }
                     var transaccion = cnn.BeginTransaction();
                     string query = "sp_series";         //Stored Procedure name   
                     SqlCommand com = new SqlCommand(query, cnn, transaccion);  //creating  SqlCommand  object  
@@ -94,12 +109,13 @@ namespace Formulas
                     com.Parameters.AddWithValue("@idimagenc ", idimagen);//Last Name                               //
                     com.ExecuteNonQuery();
                     transaccion.Commit();
+                    MessageBox.Show("Se completo la grabacion correctamente");
                     cnn.Close();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se puedo grabar la serie" + ex.ToString());
+                MessageBox.Show("No se puedo grabar la serie");
             }
         }
 
@@ -174,25 +190,6 @@ namespace Formulas
             {
                 MessageBox.Show("No se pudo llenar la tabla" + ex.ToString());
             }
-        }
-        public void serierepetida(string serie)
-        {
-            string query = "Select COUNT(*) from SERIESARTICULOS WHERE SERIE = @param";
-            SqlCommand cmd = new SqlCommand(query, cnn);
-            cmd.Parameters.AddWithValue("@param", serie);
-            cnn.Open();
-            int cant = Convert.ToInt32(cmd.ExecuteScalar());
-
-            if (cant == 0)
-            {
-
-            }
-            else
-            {
-                MessageBox.Show("La serie que intenta ingresar ya se encuentra registrada");
-                return;
-            }
-            cnn.Close();
         }
 
         public void Cargarexcel(MaskedTextBox Desdef, MaskedTextBox Hastaf, DataGridView datagrid, ComboBox combo)
