@@ -83,7 +83,7 @@ namespace Formulas
                 {
                     // connection();  
                     cnn.Open();
-                    string repetido = "Select COUNT(*) from SERIESARTICULOS WHERE idimagen = idimagen and SERIE = @param ";
+                    string repetido = "Select COUNT(*) from SERIESARTICULOS WHERE SERIE = @param and idimagen =" + idimagen;
                     SqlCommand cmd = new SqlCommand(repetido, cnn);
                     cmd.Parameters.AddWithValue("@param", serie);
                     int cant = Convert.ToInt32(cmd.ExecuteScalar());
@@ -94,7 +94,7 @@ namespace Formulas
                     }
                     else
                     {
-                        MessageBox.Show("La serie que intenta ingresar ya se encuentra registrada");
+                        MessageBox.Show("La serie " + serie + "ya se encuentra registrada");
                         cnn.Close();
                         return;
                     }
@@ -109,11 +109,10 @@ namespace Formulas
                     com.Parameters.AddWithValue("@idimagenc ", idimagen);//Last Name                               //
                     com.ExecuteNonQuery();
                     transaccion.Commit();
-                    MessageBox.Show("Se completo la grabacion correctamente");
                     cnn.Close();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("No se puedo grabar la serie");
             }

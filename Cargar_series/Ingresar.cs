@@ -60,6 +60,7 @@ namespace Cargar_series
                         }
                     }
                 }
+                MessageBox.Show("Se completo la grabacion correctamente");
                 this.Close();
             }
             catch(Exception ex)

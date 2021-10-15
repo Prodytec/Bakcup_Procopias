@@ -31,13 +31,6 @@ namespace Cargar_series
             Eex.Show();
         }
 
-        private void exportarAPDFToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Exportar_pdf Epdf = new Exportar_pdf();
-            Epdf.MdiParent = this;
-            Epdf.Show();
-        }
-
         private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Acercade Acercade = new Acercade();

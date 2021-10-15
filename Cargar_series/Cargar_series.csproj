@@ -26,7 +26,7 @@
     <InstallUrl>http://prodytec.com/programasclientes/Programa_Procopias/</InstallUrl>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>10</ApplicationRevision>
+    <ApplicationRevision>11</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -89,17 +89,16 @@
     <Compile Include="Cargar_series.Designer.cs">
       <DependentUpon>Cargar_series.cs</DependentUpon>
     </Compile>
+    <Compile Include="Datos_reporte.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Datos_reporte.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Exportar_excel.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Exportar_excel.Designer.cs">
       <DependentUpon>Exportar_excel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Exportar_pdf.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Exportar_pdf.Designer.cs">
-      <DependentUpon>Exportar_pdf.cs</DependentUpon>
     </Compile>
     <Compile Include="Ingresar.cs">
       <SubType>Form</SubType>
@@ -149,6 +148,17 @@
       <DependentUpon>Series.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Cargar_series_TemporaryKey.pfx" />
+    <None Include="Datos_reporte.xsc">
+      <DependentUpon>Datos_reporte.xsd</DependentUpon>
+    </None>
+    <None Include="Datos_reporte.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Datos_reporte.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datos_reporte.xss">
+      <DependentUpon>Datos_reporte.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

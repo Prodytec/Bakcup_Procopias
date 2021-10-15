@@ -33,7 +33,6 @@ namespace Cargar_series
             this.cargarSeriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportarAExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportarAPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
@@ -63,8 +62,7 @@ namespace Cargar_series
             // exportarToolStripMenuItem
             // 
             this.exportarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exportarAExcelToolStripMenuItem,
-            this.exportarAPDFToolStripMenuItem});
+            this.exportarAExcelToolStripMenuItem});
             this.exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
             this.exportarToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
             this.exportarToolStripMenuItem.Text = "Exportar...";
@@ -75,13 +73,6 @@ namespace Cargar_series
             this.exportarAExcelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exportarAExcelToolStripMenuItem.Text = "Exportar a excel";
             this.exportarAExcelToolStripMenuItem.Click += new System.EventHandler(this.exportarAExcelToolStripMenuItem_Click);
-            // 
-            // exportarAPDFToolStripMenuItem
-            // 
-            this.exportarAPDFToolStripMenuItem.Name = "exportarAPDFToolStripMenuItem";
-            this.exportarAPDFToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exportarAPDFToolStripMenuItem.Text = "Exportar a PDF";
-            this.exportarAPDFToolStripMenuItem.Click += new System.EventHandler(this.exportarAPDFToolStripMenuItem_Click);
             // 
             // acercaDeToolStripMenuItem
             // 
@@ -121,7 +112,6 @@ namespace Cargar_series
         private System.Windows.Forms.ToolStripMenuItem cargarSeriesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportarAExcelToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exportarAPDFToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
     }
