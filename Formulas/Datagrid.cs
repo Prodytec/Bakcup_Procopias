@@ -114,7 +114,7 @@ namespace Formulas
             }
             catch (Exception)
             {
-                MessageBox.Show("No se puedo grabar la serie");
+                MessageBox.Show("No se puede grabar la serie");
             }
         }
 

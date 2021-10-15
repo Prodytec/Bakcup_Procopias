@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Deployment.Application;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,15 @@ namespace Cargar_series
         public Acercade()
         {
             InitializeComponent();
+        }
+
+        private void Acercade_Load(object sender, EventArgs e)
+        {
+            //Version clickonce
+            if (ApplicationDeployment.IsNetworkDeployed)
+            {
+                lblversion.Text = "Versión: " + ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString();
+            }
         }
     }
 }
