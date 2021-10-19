@@ -38,6 +38,7 @@ namespace Cargar_series
             this.txtfactura = new System.Windows.Forms.TextBox();
             this.txtfecha = new System.Windows.Forms.TextBox();
             this.btnsalir = new System.Windows.Forms.Button();
+            this.btnreporte = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvfacturas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -130,11 +131,22 @@ namespace Cargar_series
             this.btnsalir.UseVisualStyleBackColor = true;
             this.btnsalir.Click += new System.EventHandler(this.btnsalir_Click);
             // 
+            // btnreporte
+            // 
+            this.btnreporte.Location = new System.Drawing.Point(704, 41);
+            this.btnreporte.Name = "btnreporte";
+            this.btnreporte.Size = new System.Drawing.Size(84, 23);
+            this.btnreporte.TabIndex = 13;
+            this.btnreporte.Text = "Reporte";
+            this.btnreporte.UseVisualStyleBackColor = true;
+            this.btnreporte.Click += new System.EventHandler(this.btnreporte_Click);
+            // 
             // Cargar_series
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnreporte);
             this.Controls.Add(this.btnsalir);
             this.Controls.Add(this.txtfecha);
             this.Controls.Add(this.txtfactura);
@@ -163,5 +175,6 @@ namespace Cargar_series
         public System.Windows.Forms.TextBox txtfactura;
         public System.Windows.Forms.TextBox txtfecha;
         private System.Windows.Forms.Button btnsalir;
+        private System.Windows.Forms.Button btnreporte;
     }
 }

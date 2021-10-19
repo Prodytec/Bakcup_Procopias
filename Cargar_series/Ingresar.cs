@@ -46,7 +46,7 @@ namespace Cargar_series
             {
                 this.dgv.AllowUserToAddRows = false;
                 cnn.Open();
-                SqlCommand cmd = new SqlCommand("delete from SERIESARTICULOS where IDIMAGEN =" + idimagen + "and CODIGOART =" + codigoart + "", cnn);
+                SqlCommand cmd = new SqlCommand("delete from SERIESARTICULOS where IDIMAGEN = " + idimagen + "and CODIGOART = " + "'" + codigoart + "'" + "", cnn);
                 cmd.ExecuteNonQuery();
                 cnn.Close();
                 for (int fila = 0; fila < dgv.Rows.Count; fila++)

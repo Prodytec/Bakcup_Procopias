@@ -62,5 +62,12 @@ namespace Cargar_series
                 
             }
         }
+
+        private void btnreporte_Click(object sender, EventArgs e)
+        {
+            Reportepdf pdf = new Reportepdf();
+            pdf.idimagen = idimagen;
+            pdf.ShowDialog();
+        }
     }
 }

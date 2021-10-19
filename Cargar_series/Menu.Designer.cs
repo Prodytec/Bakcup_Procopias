@@ -70,7 +70,7 @@ namespace Cargar_series
             // exportarAExcelToolStripMenuItem
             // 
             this.exportarAExcelToolStripMenuItem.Name = "exportarAExcelToolStripMenuItem";
-            this.exportarAExcelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exportarAExcelToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.exportarAExcelToolStripMenuItem.Text = "Exportar a excel";
             this.exportarAExcelToolStripMenuItem.Click += new System.EventHandler(this.exportarAExcelToolStripMenuItem_Click);
             // 

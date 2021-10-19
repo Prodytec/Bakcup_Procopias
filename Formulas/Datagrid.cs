@@ -59,12 +59,10 @@ namespace Formulas
             {
                 if (Seleccion == 1)
                 {
-
                     da = new SqlDataAdapter(Consulta, cnn);
                     dt = new DataTable();
                    
                     
-                    //dgv.DataSource = dt;
                     DataSet ds = new DataSet();
 
                     da.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
@@ -74,10 +72,9 @@ namespace Formulas
                     da.SelectCommand.Parameters.AddWithValue("@idimagenc", idimagen);
 
                     //dgv.DataSource = dt;
-                    da.Fill(ds, "Sp_series");
+                    da.Fill(ds, Consulta);
                     dgv.DataSource = ds;
                     dgv.DataMember = "Sp_Series";
-                    //cnn.Close();
                 }
                 else
                 {
@@ -112,9 +109,9 @@ namespace Formulas
                     cnn.Close();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("No se puede grabar la serie");
+                MessageBox.Show("No se puede grabar la serie" + ex.ToString());
             }
         }
 
