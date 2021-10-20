@@ -67,6 +67,9 @@ namespace Cargar_series
         {
             Reportepdf pdf = new Reportepdf();
             pdf.idimagen = idimagen;
+            pdf.nombrecli = txtcliente.Text;
+            pdf.numerofc = txtfactura.Text;
+            pdf.fecha = txtfecha.Text;
             pdf.ShowDialog();
         }
     }

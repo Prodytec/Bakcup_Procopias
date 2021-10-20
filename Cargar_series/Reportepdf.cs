@@ -24,6 +24,9 @@ namespace Cargar_series
         }
 
         public int idimagen;
+        public string nombrecli;
+        public string numerofc;
+        public string fecha;
 
         private void Reportepdf_Load(object sender, EventArgs e)
         {
@@ -38,6 +41,13 @@ namespace Cargar_series
             ReportDataSource Rds = new ReportDataSource("DataSet1", D.Tables[0]);
             this.reportViewer1.LocalReport.DataSources.Clear();
             this.reportViewer1.LocalReport.DataSources.Add(Rds);
+
+            //parametros del reporte
+            ReportParameter[] parameters = new ReportParameter[3];
+            parameters[0] = new ReportParameter("Nombrecliente", nombrecli);
+            parameters[1] = new ReportParameter("Numerofactura", numerofc);
+            parameters[2] = new ReportParameter("Fechafactura", fecha);
+            this.reportViewer1.LocalReport.SetParameters(parameters);
             this.reportViewer1.LocalReport.Refresh();
             this.reportViewer1.RefreshReport();
         }
