@@ -216,7 +216,6 @@
             </Style>
           </Tablix>
           <Line Name="Line1">
-            <Left>0cm</Left>
             <Height>0cm</Height>
             <Width>19.97162cm</Width>
             <ZIndex>1</ZIndex>
@@ -228,7 +227,6 @@
           </Line>
           <Line Name="Line2">
             <Top>5.11528cm</Top>
-            <Left>0cm</Left>
             <Height>0cm</Height>
             <Width>19.97162cm</Width>
             <ZIndex>2</ZIndex>
@@ -333,7 +331,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox52</rd:DefaultName>
-              <Top>2.51037cm</Top>
+              <Top>2.19287cm</Top>
               <Left>0.78176cm</Left>
               <Height>0.6cm</Height>
               <Width>4.27271cm</Width>
@@ -363,7 +361,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Numerofactura</rd:DefaultName>
-              <Top>2.51037cm</Top>
+              <Top>2.19287cm</Top>
               <Left>5.08974cm</Left>
               <Height>0.6cm</Height>
               <Width>2.60583cm</Width>

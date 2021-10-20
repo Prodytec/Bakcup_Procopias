@@ -49,6 +49,7 @@ namespace Cargar_series
             parameters[2] = new ReportParameter("Fechafactura", fecha);
             this.reportViewer1.LocalReport.SetParameters(parameters);
             this.reportViewer1.LocalReport.Refresh();
+            cnn.Close();
             this.reportViewer1.RefreshReport();
         }
     }
