@@ -35,7 +35,7 @@ namespace Cargar_series
             da.SelectCommand.Parameters.AddWithValue("@IDIMAGEN", idimagen);
             da.Fill(D, sp);
 
-            ReportDataSource Rds = new ReportDataSource("Reporte", D.Tables[0]);
+            ReportDataSource Rds = new ReportDataSource("DataSet1", D.Tables[0]);
             this.reportViewer1.LocalReport.DataSources.Clear();
             this.reportViewer1.LocalReport.DataSources.Add(Rds);
             this.reportViewer1.LocalReport.Refresh();
