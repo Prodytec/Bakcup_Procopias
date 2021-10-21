@@ -101,7 +101,7 @@ namespace Formulas
                     com.CommandType = CommandType.StoredProcedure;  //here we declaring command type as stored Procedure  
 
                     com.Parameters.AddWithValue("@Seleccion", Seleccion);        //first Name  
-                    com.Parameters.AddWithValue("@Serie ", serie);     //middle Name  
+                    com.Parameters.AddWithValue("@Serie ", serie.ToUpper());     //middle Name  
                     com.Parameters.AddWithValue("@codigoart", codigoart);
                     com.Parameters.AddWithValue("@idimagenc ", idimagen);//Last Name                               //
                     com.ExecuteNonQuery();
@@ -116,7 +116,7 @@ namespace Formulas
         }
 
 
-        public void Llenardatagrid(DataGridView dgv, string Consulta, string Sucursal, string Numero, string Fecha)
+        public void Llenardatagrid(DataGridView dgv, string Consulta, int idimagen)
         {
             try
             {
@@ -127,9 +127,8 @@ namespace Formulas
                 DataSet ds = new DataSet();
 
                 da.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@sucursal", Sucursal);
-                da.SelectCommand.Parameters.AddWithValue("@numero", Numero);
-                da.SelectCommand.Parameters.AddWithValue("@fecha", Fecha);
+                da.SelectCommand.Parameters.AddWithValue("@idimagen", idimagen);
+
                 dgv.DataSource = dt;
                 da.Fill(ds, "Consulta");
                 cnn.Close();

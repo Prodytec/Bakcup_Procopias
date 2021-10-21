@@ -285,6 +285,10 @@ namespace Cargar_series {
             
             private global::System.Data.DataColumn columnSerie;
             
+            private global::System.Data.DataColumn columnCantScan;
+            
+            private global::System.Data.DataColumn columnCantPed;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ReporteDataTable() {
@@ -344,6 +348,22 @@ namespace Cargar_series {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CantScanColumn {
+                get {
+                    return this.columnCantScan;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CantPedColumn {
+                get {
+                    return this.columnCantPed;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -379,12 +399,14 @@ namespace Cargar_series {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ReporteRow AddReporteRow(string Codigo, string Nombre, string Serie) {
+            public ReporteRow AddReporteRow(string Codigo, string Nombre, string CantScan, string CantPed) {
                 ReporteRow rowReporteRow = ((ReporteRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Codigo,
                         Nombre,
-                        Serie};
+                        null,
+                        CantScan,
+                        CantPed};
                 rowReporteRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowReporteRow);
                 return rowReporteRow;
@@ -410,6 +432,8 @@ namespace Cargar_series {
                 this.columnCodigo = base.Columns["Codigo"];
                 this.columnNombre = base.Columns["Nombre"];
                 this.columnSerie = base.Columns["Serie"];
+                this.columnCantScan = base.Columns["CantScan"];
+                this.columnCantPed = base.Columns["CantPed"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -419,8 +443,15 @@ namespace Cargar_series {
                 base.Columns.Add(this.columnCodigo);
                 this.columnNombre = new global::System.Data.DataColumn("Nombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNombre);
-                this.columnSerie = new global::System.Data.DataColumn("Serie", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnSerie = new global::System.Data.DataColumn("Serie", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSerie);
+                this.columnCantScan = new global::System.Data.DataColumn("CantScan", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCantScan);
+                this.columnCantPed = new global::System.Data.DataColumn("CantPed", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCantPed);
+                this.columnSerie.AutoIncrement = true;
+                this.columnSerie.AutoIncrementSeed = -1;
+                this.columnSerie.AutoIncrementStep = -1;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -595,10 +626,10 @@ namespace Cargar_series {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Serie {
+            public int Serie {
                 get {
                     try {
-                        return ((string)(this[this.tableReporte.SerieColumn]));
+                        return ((int)(this[this.tableReporte.SerieColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'Serie\' de la tabla \'Reporte\' es DBNull.", e);
@@ -606,6 +637,38 @@ namespace Cargar_series {
                 }
                 set {
                     this[this.tableReporte.SerieColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string CantScan {
+                get {
+                    try {
+                        return ((string)(this[this.tableReporte.CantScanColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CantScan\' de la tabla \'Reporte\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReporte.CantScanColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string CantPed {
+                get {
+                    try {
+                        return ((string)(this[this.tableReporte.CantPedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CantPed\' de la tabla \'Reporte\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReporte.CantPedColumn] = value;
                 }
             }
             
@@ -643,6 +706,30 @@ namespace Cargar_series {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetSerieNull() {
                 this[this.tableReporte.SerieColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsCantScanNull() {
+                return this.IsNull(this.tableReporte.CantScanColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetCantScanNull() {
+                this[this.tableReporte.CantScanColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsCantPedNull() {
+                return this.IsNull(this.tableReporte.CantPedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetCantPedNull() {
+                this[this.tableReporte.CantPedColumn] = global::System.Convert.DBNull;
             }
         }
         

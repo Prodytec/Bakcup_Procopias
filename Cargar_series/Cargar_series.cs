@@ -34,7 +34,7 @@ namespace Cargar_series
             string Sucursal = txtfactura.Text = palabra[0];
             string Numero = txtfactura.Text = palabra[1];
             string Fecha1 = txtfecha.Text = fech[0];
-            Datagrid.Llenardatagrid(dgvfacturas, Consulta, Sucursal, Numero, Fecha1);
+            Datagrid.Llenardatagrid(dgvfacturas, Consulta, idimagen);
             txtfactura.Text = Sucursal + "-" + Numero;
         }
 
