@@ -25,6 +25,7 @@ namespace Cargar_series
             cbfiltro.Items.Add("Hoy");
             cbfiltro.Items.Add("Personalizado");
             cbfiltro.SelectedItem = cbfiltro.Items[0];
+            cbfiltro.Visible = false;
 
         }
 

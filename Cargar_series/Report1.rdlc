@@ -56,7 +56,7 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>13.90354cm</Width>
+                  <Width>15.01542cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.67167cm</Width>
@@ -96,6 +96,7 @@
                             </Border>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -174,7 +175,7 @@
                                 <TextRun>
                                   <Value>=Fields!Serie.Value</Value>
                                   <Style>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -198,7 +199,7 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox6">
+                        <Textbox Name="Textbox2">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -214,7 +215,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox6</rd:DefaultName>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -295,7 +296,7 @@
                         </SortExpression>
                       </SortExpressions>
                       <TablixHeader>
-                        <Size>4.69604cm</Size>
+                        <Size>3.58416cm</Size>
                         <CellContents>
                           <Textbox Name="Codigo1">
                             <CanGrow>true</CanGrow>
@@ -673,7 +674,7 @@
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>1.99912cm</Height>
+          <Height>1.36412cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -695,8 +696,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox45</rd:DefaultName>
-              <Top>1.24642cm</Top>
-              <Left>0.07056cm</Left>
+              <Top>0.61142cm</Top>
+              <Left>0.03119cm</Left>
               <Height>0.6cm</Height>
               <Width>1.07125cm</Width>
               <Style>
@@ -726,8 +727,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>PageNumber</rd:DefaultName>
-              <Top>1.22298cm</Top>
-              <Left>1.14181cm</Left>
+              <Top>0.58798cm</Top>
+              <Left>1.10244cm</Left>
               <Height>0.6cm</Height>
               <Width>1.07125cm</Width>
               <ZIndex>1</ZIndex>
@@ -758,8 +759,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox45</rd:DefaultName>
-              <Top>1.24642cm</Top>
-              <Left>2.21306cm</Left>
+              <Top>0.61142cm</Top>
+              <Left>2.17369cm</Left>
               <Height>0.6cm</Height>
               <Width>0.35687cm</Width>
               <ZIndex>2</ZIndex>
@@ -790,8 +791,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>TotalPages</rd:DefaultName>
-              <Top>1.22298cm</Top>
-              <Left>2.25243cm</Left>
+              <Top>0.58798cm</Top>
+              <Left>2.21306cm</Left>
               <Height>0.6cm</Height>
               <Width>0.80667cm</Width>
               <ZIndex>3</ZIndex>
@@ -824,8 +825,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>ExecutionTime</rd:DefaultName>
-              <Top>1.24642cm</Top>
-              <Left>16.51502cm</Left>
+              <Top>0.61142cm</Top>
+              <Left>16.47565cm</Left>
               <Height>0.6cm</Height>
               <Width>4.07333cm</Width>
               <ZIndex>4</ZIndex>
@@ -869,8 +870,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox56</rd:DefaultName>
-              <Top>1.26986cm</Top>
-              <Left>12.79793cm</Left>
+              <Top>0.63486cm</Top>
+              <Left>12.75856cm</Left>
               <Height>0.6cm</Height>
               <Width>3.61125cm</Width>
               <ZIndex>5</ZIndex>
