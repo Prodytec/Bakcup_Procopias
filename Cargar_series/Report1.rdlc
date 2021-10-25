@@ -56,13 +56,13 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>15.01542cm</Width>
+                  <Width>12.7151cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.67167cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.5cm</Width>
+                  <Width>1.5075cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -96,7 +96,6 @@
                             </Border>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -175,7 +174,7 @@
                                 <TextRun>
                                   <Value>=Fields!Serie.Value</Value>
                                   <Style>
-                                    <FontSize>8pt</FontSize>
+                                    <FontSize>7pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -273,7 +272,7 @@
             <TablixRowHierarchy>
               <TablixMembers>
                 <TablixMember>
-                  <Group Name="Codigo">
+                  <Group Name="Codigo1">
                     <GroupExpressions>
                       <GroupExpression>=Fields!Codigo.Value</GroupExpression>
                     </GroupExpressions>
@@ -283,48 +282,48 @@
                       <Value>=Fields!Codigo.Value</Value>
                     </SortExpression>
                   </SortExpressions>
+                  <TablixHeader>
+                    <Size>3.66354cm</Size>
+                    <CellContents>
+                      <Textbox Name="Codigo1">
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value>=Fields!Codigo.Value</Value>
+                                <Style>
+                                  <FontWeight>Bold</FontWeight>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style>
+                              <TextAlign>Left</TextAlign>
+                            </Style>
+                          </Paragraph>
+                        </Paragraphs>
+                        <rd:DefaultName>Codigo1</rd:DefaultName>
+                        <Style>
+                          <Border>
+                            <Style>None</Style>
+                          </Border>
+                        </Style>
+                      </Textbox>
+                    </CellContents>
+                  </TablixHeader>
                   <TablixMembers>
                     <TablixMember>
-                      <Group Name="Codigo1">
+                      <Group Name="Serie">
                         <GroupExpressions>
-                          <GroupExpression>=Fields!Codigo.Value</GroupExpression>
+                          <GroupExpression>=Fields!Serie.Value</GroupExpression>
                         </GroupExpressions>
                       </Group>
                       <SortExpressions>
                         <SortExpression>
-                          <Value>=Fields!Codigo.Value</Value>
+                          <Value>=Fields!Serie.Value</Value>
                         </SortExpression>
                       </SortExpressions>
-                      <TablixHeader>
-                        <Size>3.58416cm</Size>
-                        <CellContents>
-                          <Textbox Name="Codigo1">
-                            <CanGrow>true</CanGrow>
-                            <KeepTogether>true</KeepTogether>
-                            <Paragraphs>
-                              <Paragraph>
-                                <TextRuns>
-                                  <TextRun>
-                                    <Value>=Fields!Codigo.Value</Value>
-                                    <Style>
-                                      <FontWeight>Bold</FontWeight>
-                                    </Style>
-                                  </TextRun>
-                                </TextRuns>
-                                <Style>
-                                  <TextAlign>Left</TextAlign>
-                                </Style>
-                              </Paragraph>
-                            </Paragraphs>
-                            <rd:DefaultName>Codigo1</rd:DefaultName>
-                            <Style>
-                              <Border>
-                                <Style>None</Style>
-                              </Border>
-                            </Style>
-                          </Textbox>
-                        </CellContents>
-                      </TablixHeader>
                       <TablixMembers>
                         <TablixMember />
                         <TablixMember />
@@ -335,10 +334,15 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
+            <SortExpressions>
+              <SortExpression>
+                <Value>=Fields!Serie.Value</Value>
+              </SortExpression>
+            </SortExpressions>
             <Top>1.19627cm</Top>
-            <Left>0.42898cm</Left>
+            <Left>0.07055cm</Left>
             <Height>1.2cm</Height>
-            <Width>23.77125cm</Width>
+            <Width>20.55781cm</Width>
             <Style>
               <Border>
                 <Color>White</Color>
@@ -349,7 +353,7 @@
           <Line Name="Line1">
             <Left>0.07055cm</Left>
             <Height>0cm</Height>
-            <Width>24.12968cm</Width>
+            <Width>20.55781cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -361,7 +365,7 @@
             <Top>5.11528cm</Top>
             <Left>0.07055cm</Left>
             <Height>0cm</Height>
-            <Width>24.12968cm</Width>
+            <Width>20.55781cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -377,7 +381,7 @@
           </Border>
         </Style>
       </Body>
-      <Width>24.20023cm</Width>
+      <Width>20.62836cm</Width>
       <Page>
         <PageHeader>
           <Height>3.48078cm</Height>
@@ -611,7 +615,7 @@
             <Line Name="Line3">
               <Top>1.01079cm</Top>
               <Height>0cm</Height>
-              <Width>24.20023cm</Width>
+              <Width>20.62836cm</Width>
               <ZIndex>7</ZIndex>
               <Style>
                 <Border>
@@ -892,12 +896,12 @@
             </Border>
           </Style>
         </PageFooter>
-        <PageHeight>27.94cm</PageHeight>
-        <PageWidth>21.59cm</PageWidth>
-        <LeftMargin>0.5cm</LeftMargin>
-        <RightMargin>0.5cm</RightMargin>
-        <TopMargin>0.5cm</TopMargin>
-        <BottomMargin>0.5cm</BottomMargin>
+        <PageHeight>29.7cm</PageHeight>
+        <PageWidth>21cm</PageWidth>
+        <LeftMargin>0cm</LeftMargin>
+        <RightMargin>0cm</RightMargin>
+        <TopMargin>0cm</TopMargin>
+        <BottomMargin>0cm</BottomMargin>
         <ColumnSpacing>0.13cm</ColumnSpacing>
         <Style />
       </Page>
