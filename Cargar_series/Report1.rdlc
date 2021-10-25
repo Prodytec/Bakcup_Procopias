@@ -56,9 +56,6 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>12.7151cm</Width>
-                </TablixColumn>
-                <TablixColumn>
                   <Width>2.67167cm</Width>
                 </TablixColumn>
                 <TablixColumn>
@@ -69,35 +66,6 @@
                 <TablixRow>
                   <Height>0.6cm</Height>
                   <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Nombre">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!Nombre.Value</Value>
-                                  <Style>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Nombre</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="CantScan1">
@@ -165,40 +133,7 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Serie">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!Serie.Value</Value>
-                                  <Style>
-                                    <FontSize>7pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Serie</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox2">
+                        <Textbox Name="Textbox34">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -214,7 +149,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <rd:DefaultName>Textbox34</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -229,7 +164,7 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox7">
+                        <Textbox Name="Textbox35">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -245,7 +180,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox7</rd:DefaultName>
+                          <rd:DefaultName>Textbox35</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -266,66 +201,104 @@
               <TablixMembers>
                 <TablixMember />
                 <TablixMember />
-                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
               <TablixMembers>
                 <TablixMember>
-                  <Group Name="Codigo1">
+                  <Group Name="Group1">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!Codigo.Value</GroupExpression>
+                      <GroupExpression>=Fields!Codigo.Value + Fields!Nombre.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!Codigo.Value</Value>
+                      <Value>=Fields!Codigo.Value + Fields!Nombre.Value</Value>
                     </SortExpression>
                   </SortExpressions>
-                  <TablixHeader>
-                    <Size>3.66354cm</Size>
-                    <CellContents>
-                      <Textbox Name="Codigo1">
-                        <CanGrow>true</CanGrow>
-                        <KeepTogether>true</KeepTogether>
-                        <Paragraphs>
-                          <Paragraph>
-                            <TextRuns>
-                              <TextRun>
-                                <Value>=Fields!Codigo.Value</Value>
-                                <Style>
-                                  <FontWeight>Bold</FontWeight>
-                                </Style>
-                              </TextRun>
-                            </TextRuns>
-                            <Style>
-                              <TextAlign>Left</TextAlign>
-                            </Style>
-                          </Paragraph>
-                        </Paragraphs>
-                        <rd:DefaultName>Codigo1</rd:DefaultName>
-                        <Style>
-                          <Border>
-                            <Style>None</Style>
-                          </Border>
-                        </Style>
-                      </Textbox>
-                    </CellContents>
-                  </TablixHeader>
                   <TablixMembers>
                     <TablixMember>
-                      <Group Name="Serie">
-                        <GroupExpressions>
-                          <GroupExpression>=Fields!Serie.Value</GroupExpression>
-                        </GroupExpressions>
-                      </Group>
-                      <SortExpressions>
-                        <SortExpression>
-                          <Value>=Fields!Serie.Value</Value>
-                        </SortExpression>
-                      </SortExpressions>
+                      <TablixHeader>
+                        <Size>16.29926cm</Size>
+                        <CellContents>
+                          <Textbox Name="Group1">
+                            <CanGrow>true</CanGrow>
+                            <KeepTogether>true</KeepTogether>
+                            <Paragraphs>
+                              <Paragraph>
+                                <TextRuns>
+                                  <TextRun>
+                                    <Value>=Fields!Codigo.Value + "-" + Fields!Nombre.Value</Value>
+                                    <Style>
+                                      <FontWeight>Bold</FontWeight>
+                                    </Style>
+                                  </TextRun>
+                                </TextRuns>
+                                <Style>
+                                  <TextAlign>Left</TextAlign>
+                                </Style>
+                              </Paragraph>
+                            </Paragraphs>
+                            <rd:DefaultName>Group1</rd:DefaultName>
+                            <Style>
+                              <Border>
+                                <Style>None</Style>
+                              </Border>
+                            </Style>
+                          </Textbox>
+                        </CellContents>
+                      </TablixHeader>
                       <TablixMembers>
-                        <TablixMember />
+                        <TablixMember>
+                          <Group Name="Serie">
+                            <GroupExpressions>
+                              <GroupExpression>=Fields!Serie.Value</GroupExpression>
+                            </GroupExpressions>
+                          </Group>
+                          <SortExpressions>
+                            <SortExpression>
+                              <Value>=Fields!Serie.Value</Value>
+                            </SortExpression>
+                          </SortExpressions>
+                          <TablixMembers>
+                            <TablixMember />
+                          </TablixMembers>
+                        </TablixMember>
+                      </TablixMembers>
+                    </TablixMember>
+                    <TablixMember>
+                      <TablixHeader>
+                        <Size>16.29926cm</Size>
+                        <CellContents>
+                          <Textbox Name="Serie">
+                            <CanGrow>true</CanGrow>
+                            <KeepTogether>true</KeepTogether>
+                            <Paragraphs>
+                              <Paragraph>
+                                <TextRuns>
+                                  <TextRun>
+                                    <Value>=Fields!Serie.Value</Value>
+                                    <Style>
+                                      <FontSize>7pt</FontSize>
+                                    </Style>
+                                  </TextRun>
+                                </TextRuns>
+                                <Style>
+                                  <TextAlign>Left</TextAlign>
+                                </Style>
+                              </Paragraph>
+                            </Paragraphs>
+                            <rd:DefaultName>Serie</rd:DefaultName>
+                            <Style>
+                              <Border>
+                                <Style>None</Style>
+                              </Border>
+                            </Style>
+                          </Textbox>
+                          <rd:Selected>true</rd:Selected>
+                        </CellContents>
+                      </TablixHeader>
+                      <TablixMembers>
                         <TablixMember />
                       </TablixMembers>
                     </TablixMember>
@@ -342,7 +315,7 @@
             <Top>1.19627cm</Top>
             <Left>0.07055cm</Left>
             <Height>1.2cm</Height>
-            <Width>20.55781cm</Width>
+            <Width>20.47843cm</Width>
             <Style>
               <Border>
                 <Color>White</Color>
