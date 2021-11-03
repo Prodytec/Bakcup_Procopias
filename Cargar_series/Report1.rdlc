@@ -56,10 +56,10 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.67167cm</Width>
+                  <Width>2.49928cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.5075cm</Width>
+                  <Width>1.33511cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -219,7 +219,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>16.29926cm</Size>
+                        <Size>16.12687cm</Size>
                         <CellContents>
                           <Textbox Name="Group1">
                             <CanGrow>true</CanGrow>
@@ -228,7 +228,7 @@
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value>=Fields!Codigo.Value + "-" + Fields!Nombre.Value</Value>
+                                    <Value>= trim(Fields!Codigo.Value) +"-"+ trim(Fields!Nombre.Value)</Value>
                                     <Style>
                                       <FontWeight>Bold</FontWeight>
                                     </Style>
@@ -246,6 +246,7 @@
                               </Border>
                             </Style>
                           </Textbox>
+                          <rd:Selected>true</rd:Selected>
                         </CellContents>
                       </TablixHeader>
                       <TablixMembers>
@@ -268,7 +269,7 @@
                     </TablixMember>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>16.29926cm</Size>
+                        <Size>16.12687cm</Size>
                         <CellContents>
                           <Textbox Name="Serie">
                             <CanGrow>true</CanGrow>
@@ -295,7 +296,6 @@
                               </Border>
                             </Style>
                           </Textbox>
-                          <rd:Selected>true</rd:Selected>
                         </CellContents>
                       </TablixHeader>
                       <TablixMembers>
@@ -313,9 +313,9 @@
               </SortExpression>
             </SortExpressions>
             <Top>1.19627cm</Top>
-            <Left>0.07055cm</Left>
+            <Left>0.58773cm</Left>
             <Height>1.2cm</Height>
-            <Width>20.47843cm</Width>
+            <Width>19.96125cm</Width>
             <Style>
               <Border>
                 <Color>White</Color>
@@ -628,7 +628,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.12884cm</Top>
+              <Top>0.16412cm</Top>
+              <Left>0.42743cm</Left>
               <Height>0.84667cm</Height>
               <Width>2.49937cm</Width>
               <ZIndex>8</ZIndex>
@@ -674,7 +675,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox45</rd:DefaultName>
               <Top>0.61142cm</Top>
-              <Left>0.03119cm</Left>
+              <Left>0.42743cm</Left>
               <Height>0.6cm</Height>
               <Width>1.07125cm</Width>
               <Style>
@@ -705,7 +706,7 @@
               </Paragraphs>
               <rd:DefaultName>PageNumber</rd:DefaultName>
               <Top>0.58798cm</Top>
-              <Left>1.10244cm</Left>
+              <Left>1.49868cm</Left>
               <Height>0.6cm</Height>
               <Width>1.07125cm</Width>
               <ZIndex>1</ZIndex>
@@ -737,7 +738,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox45</rd:DefaultName>
               <Top>0.61142cm</Top>
-              <Left>2.17369cm</Left>
+              <Left>2.56993cm</Left>
               <Height>0.6cm</Height>
               <Width>0.35687cm</Width>
               <ZIndex>2</ZIndex>
@@ -769,7 +770,7 @@
               </Paragraphs>
               <rd:DefaultName>TotalPages</rd:DefaultName>
               <Top>0.58798cm</Top>
-              <Left>2.21306cm</Left>
+              <Left>2.6093cm</Left>
               <Height>0.6cm</Height>
               <Width>0.80667cm</Width>
               <ZIndex>3</ZIndex>

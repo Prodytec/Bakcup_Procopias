@@ -30,36 +30,32 @@ namespace Cargar_series
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.DataSet1 = new DataSet1();
             this.ClientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.DataSet1)).BeginInit();
+            this.DataSet1 = new DataSet1();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.ClientesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataSet1)).BeginInit();
             this.SuspendLayout();
             // 
-            // reportViewer1
+            // ClientesBindingSource
             // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "Clientes";
-            reportDataSource1.Value = this.ClientesBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Cargar_series.Report1.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(800, 450);
-            this.reportViewer1.TabIndex = 0;
+            this.ClientesBindingSource.DataMember = "Reporte";
+            this.ClientesBindingSource.DataSource = this.DataSet1;
             // 
             // DataSet1
             // 
             this.DataSet1.DataSetName = "DataSet1";
             this.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // ClientesBindingSource
+            // reportViewer1
             // 
-            this.ClientesBindingSource.DataMember = "Reporte";
-            this.ClientesBindingSource.DataSource = this.DataSet1;
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Cargar_series.Report1.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(800, 450);
+            this.reportViewer1.TabIndex = 0;
             // 
             // Reportepdf
             // 
@@ -70,8 +66,8 @@ namespace Cargar_series
             this.Name = "Reportepdf";
             this.Text = "Reportepdf";
             this.Load += new System.EventHandler(this.Reportepdf_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClientesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -166,8 +166,6 @@ namespace Cargar_series
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgvfacturas;
         public System.Windows.Forms.Label lblcliente;
         public System.Windows.Forms.Label lblfactura;
         public System.Windows.Forms.Label lblfecha;
@@ -176,5 +174,6 @@ namespace Cargar_series
         public System.Windows.Forms.TextBox txtfecha;
         private System.Windows.Forms.Button btnsalir;
         private System.Windows.Forms.Button btnreporte;
+        private System.Windows.Forms.DataGridView dgvfacturas;
     }
 }

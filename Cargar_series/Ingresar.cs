@@ -28,6 +28,7 @@ namespace Cargar_series
         string Sql = "SP_SERIES";
         string Valor = "series";
 
+
         private void btnsalir_Click(object sender, EventArgs e)
         {
             dgv.AllowUserToAddRows = true;
@@ -38,6 +39,7 @@ namespace Cargar_series
         {
             Datagrid.Grabar(dgv, Sql,1, Valor, codigoart, idimagen);
             dgv.AllowUserToAddRows = true;
+            
         }
 
         private void btngrabar_Click(object sender, EventArgs e)

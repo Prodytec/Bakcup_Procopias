@@ -36,7 +36,7 @@ namespace Cargar_series
             SqlDataAdapter da = new SqlDataAdapter(sp, cnn);
             da.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
             da.SelectCommand.Parameters.AddWithValue("@IDIMAGEN", idimagen);
-            da.Fill(D, sp);
+            da.Fill(D, sp.Trim());
 
             ReportDataSource Rds = new ReportDataSource("DataSet1", D.Tables[0]);
             this.reportViewer1.LocalReport.DataSources.Clear();
