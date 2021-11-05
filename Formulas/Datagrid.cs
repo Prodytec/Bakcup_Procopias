@@ -12,9 +12,9 @@ namespace Formulas
     public class Datagrid
     {
         SqlConnection cnn = Conexionbd.DbConnection.getDBConnection();
-        SqlDataAdapter da = new SqlDataAdapter();
-        DataTable dt = new DataTable();
-        SqlCommand cmd = new SqlCommand();
+        private SqlDataAdapter da = new SqlDataAdapter();
+        private DataTable dt = new DataTable();
+        private SqlCommand cmd = new SqlCommand();
 
         public void Llenardatagrid(DataGridView dgv, string Consulta, int Seleccion, MaskedTextBox Desde, MaskedTextBox Hasta, string Campo, TextBox Valor)
         {

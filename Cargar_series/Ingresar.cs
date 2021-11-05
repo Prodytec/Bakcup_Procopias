@@ -38,6 +38,9 @@ namespace Cargar_series
         private void Ingresar_Load(object sender, EventArgs e)
         {
             Datagrid.Grabar(dgv, Sql,1, Valor, codigoart, idimagen);
+            lblcantpedida.Text = cantidad.ToString();
+            int cantidadescan = (dgv.Rows.Count - 1);
+            lblcantescan.Text = cantidadescan.ToString();
             dgv.AllowUserToAddRows = true;
             
         }
@@ -74,10 +77,16 @@ namespace Cargar_series
 
         private void dgv_CellLeave(object sender, DataGridViewCellEventArgs e)
         {
+            int cantidadescan = (dgv.Rows.Count - 1);
+            lblcantescan.Text = cantidadescan.ToString();
             if (this.dgv.Rows.Count - 1 == cantidad)
             {
                 this.dgv.AllowUserToAddRows = false;
                 MessageBox.Show("No se pueden cargar mas series");
+            }
+            if(this.dgv.AllowUserToAddRows == false)
+            {
+               lblcantescan.Text = dgv.Rows.Count.ToString();
             }
         }
     }
