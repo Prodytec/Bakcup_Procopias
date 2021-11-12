@@ -80,21 +80,6 @@ namespace Formulas
                 {
                     // connection();  
                     cnn.Open();
-                    string repetido = "Select COUNT(*) from SERIESARTICULOS WHERE SERIE = @param and idimagen =" + idimagen;
-                    SqlCommand cmd = new SqlCommand(repetido, cnn);
-                    cmd.Parameters.AddWithValue("@param", serie);
-                    int cant = Convert.ToInt32(cmd.ExecuteScalar());
-
-                    if (cant == 0)
-                    {
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("La serie " + serie + "ya se encuentra registrada");
-                        cnn.Close();
-                        return;
-                    }
                     var transaccion = cnn.BeginTransaction();
                     string query = "sp_series";         //Stored Procedure name   
                     SqlCommand com = new SqlCommand(query, cnn, transaccion);  //creating  SqlCommand  object  
@@ -187,7 +172,7 @@ namespace Formulas
             }
         }
 
-        public void Cargarexcel(MaskedTextBox Desdef, MaskedTextBox Hastaf, DataGridView datagrid, ComboBox combo)
+        public void Cargarexcel(DateTimePicker Desdef, DateTimePicker Hastaf, DataGridView datagrid, ComboBox combo)
         {
             //llamo al store
             string store;
@@ -258,9 +243,36 @@ namespace Formulas
             DataTable lista = new DataTable();
             da.Fill(lista);
 
-            combo.DisplayMember = "Nombre";
+            combo.DisplayMember = "Nombre".Trim();
             combo.ValueMember = "idproveedor";
             combo.DataSource = lista;
+
+            AutoCompleteStringCollection collection = new AutoCompleteStringCollection();
+            foreach(DataRow row in lista.Rows)
+            {
+                collection.Add(Convert.ToString(row["Nombre"]).Trim());
+            }
+            combo.AutoCompleteCustomSource = collection;
+            combo.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            combo.AutoCompleteSource = AutoCompleteSource.CustomSource;
+        }
+
+        public bool reccorergrilla(int nfila, string cContenido, DataGridView dgv)
+        {
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                String cellText = Convert.ToString(row.Cells[0].Value);
+                
+                
+                if (cellText.Trim().ToLower() == cContenido.Trim().ToLower() && nfila != row.Index && cContenido.Trim() != "")
+                {
+                    MessageBox.Show("Esta serie ya existe");
+                    dgv.Rows[dgv.CurrentRow.Index].Cells[0].Value = "";
+                    return false;
+                }
+            }
+            return true;
+
         }
     }
 }

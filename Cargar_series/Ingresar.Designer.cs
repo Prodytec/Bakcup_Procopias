@@ -54,6 +54,7 @@ namespace Cargar_series
             this.dgv.Size = new System.Drawing.Size(257, 214);
             this.dgv.TabIndex = 0;
             this.dgv.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellLeave);
+            this.dgv.RowValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_RowValidated);
             // 
             // btngrabar
             // 

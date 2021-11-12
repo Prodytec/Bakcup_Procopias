@@ -27,15 +27,7 @@ namespace Cargar_series
 
         private void Procesar_Click(object sender, EventArgs e)
         {
-            if(txtdesdef.MaskFull == false || txthastaf.MaskFull == false)
-            {
-                MessageBox.Show("Las fechas no pueden estar vacias");
-            }
-            else
-            {
-                D.Cargarexcel(txtdesdef, txthastaf, dataGridView1, cmbproveedor);
-            }
-            
+            D.Cargarexcel(DTP1, DTP2, dataGridView1, cmbproveedor);            
         }
 
         private void btnexportar_Click(object sender, EventArgs e)

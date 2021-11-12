@@ -58,9 +58,9 @@ namespace Cargar_series
                 {
                     for (int col = 0; col < dgv.Rows[fila].Cells.Count; col++)
                     {
-                        if (this.dgv.Rows[fila].Cells[col].Value.ToString() != null)
+                        string valor = this.dgv.Rows[fila].Cells[col].Value.ToString();
+                        if (valor != null)
                         {
-                            string valor = this.dgv.Rows[fila].Cells[col].Value.ToString();
                             Datagrid.Grabar(dgv, Sql, 2, valor, codigoart, idimagen);
                         }
                     }
@@ -74,7 +74,7 @@ namespace Cargar_series
             }
             
         }
-
+       
         private void dgv_CellLeave(object sender, DataGridViewCellEventArgs e)
         {
             int cantidadescan = (dgv.Rows.Count - 1);
@@ -87,6 +87,18 @@ namespace Cargar_series
             if(this.dgv.AllowUserToAddRows == false)
             {
                lblcantescan.Text = dgv.Rows.Count.ToString();
+            }
+        }
+
+        private void dgv_RowValidated(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+
+                String cellText = Convert.ToString(row.Cells[0].Value);
+
+                Datagrid.reccorergrilla(row.Index, cellText, dgv);
+                  
             }
         }
     }
