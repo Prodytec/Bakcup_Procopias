@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Cargar_series.exe" size="83416">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Cargar_series.exe" size="83928">
       <assemblyIdentity name="Cargar_series" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>nVn1YbrGveBtwJKur6ceQrvvx8/46n1VnT3sCUi1iSo=</dsig:DigestValue>
+        <dsig:DigestValue>JImqDWmsx0f5Y8BWAPkfO31Sjq0wlYgXhUA27FIcu8c=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

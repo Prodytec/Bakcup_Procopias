@@ -77,8 +77,19 @@ namespace Cargar_series
        
         private void dgv_CellLeave(object sender, DataGridViewCellEventArgs e)
         {
-            int cantidadescan = (dgv.Rows.Count - 1);
-            lblcantescan.Text = cantidadescan.ToString();
+            int filaescrita = 0;
+            int filavacia = 0;
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                if (row.Cells[0].Value == null || row.Cells[0].Value == DBNull.Value || String.IsNullOrWhiteSpace(row.Cells[0].Value.ToString()))
+                {
+                    filavacia = filavacia + 1;
+                }
+                filaescrita = filaescrita + 1;
+            }
+
+            int filas = filaescrita - filavacia;
+            lblcantescan.Text = Convert.ToString(filas);
             if (this.dgv.Rows.Count - 1 == cantidad)
             {
                 this.dgv.AllowUserToAddRows = false;
@@ -86,7 +97,7 @@ namespace Cargar_series
             }
             if(this.dgv.AllowUserToAddRows == false)
             {
-               lblcantescan.Text = dgv.Rows.Count.ToString();
+                lblcantescan.Text = Convert.ToString(filas);
             }
         }
 
@@ -94,12 +105,27 @@ namespace Cargar_series
         {
             foreach (DataGridViewRow row in dgv.Rows)
             {
-
                 String cellText = Convert.ToString(row.Cells[0].Value);
 
                 Datagrid.reccorergrilla(row.Index, cellText, dgv);
-                  
             }
+        }
+
+        private void dgv_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            int filaescrita = 0;
+            int filavacia = 0;
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                if (row.Cells[0].Value == null || row.Cells[0].Value == DBNull.Value || String.IsNullOrWhiteSpace(row.Cells[0].Value.ToString()))
+                {
+                    filavacia = filavacia + 1;
+                }
+                filaescrita = filaescrita + 1;
+            }
+
+            int filas = filaescrita - filavacia;
+            lblcantescan.Text = Convert.ToString(filas);
         }
     }
 }
