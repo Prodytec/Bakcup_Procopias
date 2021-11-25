@@ -184,7 +184,7 @@ namespace Formulas
             da.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
             da.SelectCommand.Parameters.AddWithValue("@desdef", Desdef.Text.ToString());
             da.SelectCommand.Parameters.AddWithValue("@hastaf", Hastaf.Text.ToString());
-            da.SelectCommand.Parameters.AddWithValue("@desdep", combo.SelectedValue.ToString());
+            da.SelectCommand.Parameters.AddWithValue("@desdep", combo.SelectedValue);
             da.SelectCommand.Parameters.AddWithValue("@hastap", combo.SelectedValue.ToString());
             da.Fill(ds, "store");
             cnn.Close();
@@ -246,15 +246,6 @@ namespace Formulas
             combo.DisplayMember = "Nombre".Trim();
             combo.ValueMember = "idproveedor";
             combo.DataSource = lista;
-
-            AutoCompleteStringCollection collection = new AutoCompleteStringCollection();
-            foreach(DataRow row in lista.Rows)
-            {
-                collection.Add(Convert.ToString(row["Nombre"]).Trim());
-            }
-            combo.AutoCompleteCustomSource = collection;
-            combo.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            combo.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
 
         public bool reccorergrilla(int nfila, string cContenido, DataGridView dgv)

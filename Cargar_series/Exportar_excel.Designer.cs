@@ -134,6 +134,8 @@ namespace Cargar_series
             // 
             // cmbproveedor
             // 
+            this.cmbproveedor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbproveedor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbproveedor.FormattingEnabled = true;
             this.cmbproveedor.Location = new System.Drawing.Point(41, 42);
             this.cmbproveedor.Name = "cmbproveedor";
