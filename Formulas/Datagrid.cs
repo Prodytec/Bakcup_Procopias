@@ -177,7 +177,7 @@ namespace Formulas
             //llamo al store
             string store;
             store = "SP_EXPORTAR_EXCEL";
-            SqlDataAdapter da = new SqlDataAdapter(store, cnn);
+            SqlDataAdapter da = new SqlDataAdapter(store.Trim(), cnn);
             DataSet ds = new DataSet();
 
             //parametros
