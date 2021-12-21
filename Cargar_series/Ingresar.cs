@@ -65,7 +65,6 @@ namespace Cargar_series
                         }
                     }
                 }
-                MessageBox.Show("Se completo la grabacion correctamente");
                 this.Close();
             }
             catch(Exception ex)
@@ -93,7 +92,6 @@ namespace Cargar_series
             if (this.dgv.Rows.Count - 1 == cantidad)
             {
                 this.dgv.AllowUserToAddRows = false;
-                MessageBox.Show("No se pueden cargar mas series");
             }
             if(this.dgv.AllowUserToAddRows == false)
             {
