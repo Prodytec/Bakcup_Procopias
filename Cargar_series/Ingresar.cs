@@ -31,8 +31,8 @@ namespace Cargar_series
 
         private void btnsalir_Click(object sender, EventArgs e)
         {
-            dgv.AllowUserToAddRows = true;
-            this.Close();
+            
+           
         }
 
         private void Ingresar_Load(object sender, EventArgs e)
@@ -65,6 +65,7 @@ namespace Cargar_series
                         }
                     }
                 }
+                dgv.AllowUserToAddRows = true;
                 this.Close();
             }
             catch(Exception ex)
@@ -124,6 +125,45 @@ namespace Cargar_series
 
             int filas = filaescrita - filavacia;
             lblcantescan.Text = Convert.ToString(filas);
+        }
+
+        private void dgv_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                e.Handled = true;
+                dgv.Rows.RemoveAt(dgv.CurrentRow.Index);
+                dgv.AllowUserToAddRows = true;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dgv.DataSource = null;
+            dgv.Rows.Clear();
+            Datagrid.Grabar(dgv, Sql, 1, Valor, codigoart, idimagen);
+            int filaescrita = 0;
+            int filavacia = 0;
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                if (row.Cells[0].Value == null || row.Cells[0].Value == DBNull.Value || String.IsNullOrWhiteSpace(row.Cells[0].Value.ToString()))
+                {
+                    filavacia = filavacia + 1;
+                }
+                filaescrita = filaescrita + 1;
+            }
+
+            int filas = filaescrita - filavacia;
+            lblcantescan.Text = Convert.ToString(filas);
+            if (this.dgv.Rows.Count - 1 == cantidad)
+            {
+                this.dgv.AllowUserToAddRows = false;
+            }
+            if (this.dgv.AllowUserToAddRows == false)
+            {
+                lblcantescan.Text = Convert.ToString(filas);
+            }
+            dgv.AllowUserToAddRows = true;
         }
     }
 }

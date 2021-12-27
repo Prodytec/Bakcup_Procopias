@@ -31,11 +31,11 @@ namespace Cargar_series
         {
             this.dgv = new System.Windows.Forms.DataGridView();
             this.btngrabar = new System.Windows.Forms.Button();
-            this.btnsalir = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblcantescan = new System.Windows.Forms.Label();
             this.lblcantpedida = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,26 +56,17 @@ namespace Cargar_series
             this.dgv.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellEndEdit);
             this.dgv.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellLeave);
             this.dgv.RowValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_RowValidated);
+            this.dgv.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgv_KeyDown);
             // 
             // btngrabar
             // 
-            this.btngrabar.Location = new System.Drawing.Point(194, 232);
+            this.btngrabar.Location = new System.Drawing.Point(194, 282);
             this.btngrabar.Name = "btngrabar";
             this.btngrabar.Size = new System.Drawing.Size(75, 23);
             this.btngrabar.TabIndex = 1;
             this.btngrabar.Text = "Grabar";
             this.btngrabar.UseVisualStyleBackColor = true;
             this.btngrabar.Click += new System.EventHandler(this.btngrabar_Click);
-            // 
-            // btnsalir
-            // 
-            this.btnsalir.Location = new System.Drawing.Point(194, 261);
-            this.btnsalir.Name = "btnsalir";
-            this.btnsalir.Size = new System.Drawing.Size(75, 23);
-            this.btnsalir.TabIndex = 2;
-            this.btnsalir.Text = "Salir";
-            this.btnsalir.UseVisualStyleBackColor = true;
-            this.btnsalir.Click += new System.EventHandler(this.btnsalir_Click);
             // 
             // label1
             // 
@@ -111,17 +102,27 @@ namespace Cargar_series
             this.lblcantpedida.Size = new System.Drawing.Size(0, 13);
             this.lblcantpedida.TabIndex = 6;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(16, 282);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Borrar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Ingresar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(281, 291);
+            this.ClientSize = new System.Drawing.Size(281, 317);
             this.ControlBox = false;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lblcantpedida);
             this.Controls.Add(this.lblcantescan);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnsalir);
             this.Controls.Add(this.btngrabar);
             this.Controls.Add(this.dgv);
             this.MaximizeBox = false;
@@ -138,11 +139,11 @@ namespace Cargar_series
 
         #endregion
         private System.Windows.Forms.Button btngrabar;
-        private System.Windows.Forms.Button btnsalir;
         public System.Windows.Forms.DataGridView dgv;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblcantescan;
         private System.Windows.Forms.Label lblcantpedida;
+        private System.Windows.Forms.Button button1;
     }
 }
