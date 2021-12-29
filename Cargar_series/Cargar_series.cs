@@ -47,23 +47,29 @@ namespace Cargar_series
         {
             if (e.ColumnIndex == 5)
             {
-                I.idimagen = idimagen;
-                I.codigoart = dgvfacturas.Rows[e.RowIndex].Cells["Codigo"].Value.ToString();
-                I.cantidad = Convert.ToInt32(dgvfacturas.Rows[e.RowIndex].Cells["Cantidad pedida"].Value.ToString());
-                if(dgvfacturas.Rows[e.RowIndex].Cells["Cantidad pedida"].Value.ToString() == dgvfacturas.Rows[e.RowIndex].Cells["Cantidad escaneada"].Value.ToString())
+                if(e.RowIndex == -1)
                 {
-                    I.dgv.AllowUserToAddRows = false;
-                    I.ShowDialog();
+
                 }
                 else
                 {
-                    I.ShowDialog();
-                    dgvfacturas.DataSource = null;
-                    dgvfacturas.Rows.Clear();
-                    dgvfacturas.Columns.Clear();
-                    Datagrid.Llenardatagrid(dgvfacturas, Consulta, idimagen);
+                    I.idimagen = idimagen;
+                    I.codigoart = dgvfacturas.Rows[e.RowIndex].Cells["Codigo"].Value.ToString();
+                    I.cantidad = Convert.ToInt32(dgvfacturas.Rows[e.RowIndex].Cells["Cantidad pedida"].Value.ToString());
+                    if (dgvfacturas.Rows[e.RowIndex].Cells["Cantidad pedida"].Value.ToString() == dgvfacturas.Rows[e.RowIndex].Cells["Cantidad escaneada"].Value.ToString())
+                    {
+                        I.dgv.AllowUserToAddRows = false;
+                        I.ShowDialog();
+                    }
+                    else
+                    {
+                        I.ShowDialog();
+                        dgvfacturas.DataSource = null;
+                        dgvfacturas.Rows.Clear();
+                        dgvfacturas.Columns.Clear();
+                        Datagrid.Llenardatagrid(dgvfacturas, Consulta, idimagen);
+                    }
                 }
-                
             }
         }
 
