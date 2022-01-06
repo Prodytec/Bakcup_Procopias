@@ -150,7 +150,7 @@ namespace Cargar_series
             this.DTP1.Name = "DTP1";
             this.DTP1.Size = new System.Drawing.Size(107, 20);
             this.DTP1.TabIndex = 13;
-            this.DTP1.Value = new System.DateTime(2021, 11, 12, 10, 38, 25, 0);
+            this.DTP1.Value = new System.DateTime(2022, 1, 6, 0, 0, 0, 0);
             // 
             // DTP2
             // 
@@ -160,7 +160,7 @@ namespace Cargar_series
             this.DTP2.Name = "DTP2";
             this.DTP2.Size = new System.Drawing.Size(107, 20);
             this.DTP2.TabIndex = 14;
-            this.DTP2.Value = new System.DateTime(2021, 11, 12, 10, 38, 25, 0);
+            this.DTP2.Value = new System.DateTime(2022, 1, 6, 0, 0, 0, 0);
             // 
             // Exportar_excel
             // 

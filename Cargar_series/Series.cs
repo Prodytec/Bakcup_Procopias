@@ -94,13 +94,6 @@ namespace Cargar_series
             Datagrid.Buscargrid(dgvfacturas, Todos, 5, mtxtdesde, mtxthasta, Fecha, mtxtbuscarfecha);
         }
 
-        private void dgvfacturas_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-            
-            
-        }
-
         private void btnsalir_Click(object sender, EventArgs e)
         {
             this.Close();

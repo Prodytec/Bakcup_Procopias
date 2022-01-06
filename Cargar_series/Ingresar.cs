@@ -29,12 +29,6 @@ namespace Cargar_series
         string Valor = "series";
 
 
-        private void btnsalir_Click(object sender, EventArgs e)
-        {
-            
-           
-        }
-
         private void Ingresar_Load(object sender, EventArgs e)
         {
             Datagrid.Grabar(dgv, Sql,1, Valor, codigoart, idimagen);
@@ -42,6 +36,7 @@ namespace Cargar_series
             int cantidadescan = (dgv.Rows.Count - 1);
             lblcantescan.Text = cantidadescan.ToString();
             dgv.AllowUserToAddRows = true;
+            dgv.Focus();
             
         }
 
@@ -139,9 +134,12 @@ namespace Cargar_series
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dgv.DataSource = null;
-            dgv.Rows.Clear();
+            cnn.Open();
+            SqlCommand cmd = new SqlCommand("delete from SERIESARTICULOS where IDIMAGEN = " + idimagen + "and CODIGOART = " + "'" + codigoart + "'" + "", cnn);
+            cmd.ExecuteNonQuery();
             Datagrid.Grabar(dgv, Sql, 1, Valor, codigoart, idimagen);
+            cnn.Close();
+            dgv.Focus();
             int filaescrita = 0;
             int filavacia = 0;
             foreach (DataGridViewRow row in dgv.Rows)
