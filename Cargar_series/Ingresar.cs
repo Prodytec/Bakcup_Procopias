@@ -60,7 +60,7 @@ namespace Cargar_series
                         }
                     }
                 }
-                dgv.AllowUserToAddRows = true;
+                
                 this.Close();
             }
             catch(Exception ex)

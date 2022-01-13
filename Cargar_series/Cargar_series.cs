@@ -60,6 +60,9 @@ namespace Cargar_series
                     {
                         I.dgv.AllowUserToAddRows = false;
                         I.ShowDialog();
+                        dgvfacturas.DataSource = null;
+                        dgvfacturas.Rows.Clear();
+                        Datagrid.Llenardatagrid(dgvfacturas, Consulta, idimagen);
                     }
                     else
                     {
