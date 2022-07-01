@@ -134,34 +134,43 @@ namespace Cargar_series
 
         private void button1_Click(object sender, EventArgs e)
         {
-            cnn.Open();
-            SqlCommand cmd = new SqlCommand("delete from SERIESARTICULOS where IDIMAGEN = " + idimagen + "and CODIGOART = " + "'" + codigoart + "'" + "", cnn);
-            cmd.ExecuteNonQuery();
-            Datagrid.Grabar(dgv, Sql, 1, Valor, codigoart, idimagen);
-            cnn.Close();
-            dgv.Focus();
-            int filaescrita = 0;
-            int filavacia = 0;
-            foreach (DataGridViewRow row in dgv.Rows)
+            DialogResult Dr = MessageBox.Show("¿Estas seguro que desas borrar todas las series?", "yes", MessageBoxButtons.YesNo);
+            if(Dr == DialogResult.Yes)
             {
-                if (row.Cells[0].Value == null || row.Cells[0].Value == DBNull.Value || String.IsNullOrWhiteSpace(row.Cells[0].Value.ToString()))
+                cnn.Open();
+                SqlCommand cmd = new SqlCommand("delete from SERIESARTICULOS where IDIMAGEN = " + idimagen + "and CODIGOART = " + "'" + codigoart + "'" + "", cnn);
+                cmd.ExecuteNonQuery();
+                Datagrid.Grabar(dgv, Sql, 1, Valor, codigoart, idimagen);
+                cnn.Close();
+                dgv.Focus();
+                int filaescrita = 0;
+                int filavacia = 0;
+                foreach (DataGridViewRow row in dgv.Rows)
                 {
-                    filavacia = filavacia + 1;
+                    if (row.Cells[0].Value == null || row.Cells[0].Value == DBNull.Value || String.IsNullOrWhiteSpace(row.Cells[0].Value.ToString()))
+                    {
+                        filavacia = filavacia + 1;
+                    }
+                    filaescrita = filaescrita + 1;
                 }
-                filaescrita = filaescrita + 1;
-            }
 
-            int filas = filaescrita - filavacia;
-            lblcantescan.Text = Convert.ToString(filas);
-            if (this.dgv.Rows.Count - 1 == cantidad)
-            {
-                this.dgv.AllowUserToAddRows = false;
-            }
-            if (this.dgv.AllowUserToAddRows == false)
-            {
+                int filas = filaescrita - filavacia;
                 lblcantescan.Text = Convert.ToString(filas);
+                if (this.dgv.Rows.Count - 1 == cantidad)
+                {
+                    this.dgv.AllowUserToAddRows = false;
+                }
+                if (this.dgv.AllowUserToAddRows == false)
+                {
+                    lblcantescan.Text = Convert.ToString(filas);
+                }
+                dgv.AllowUserToAddRows = true;
             }
-            dgv.AllowUserToAddRows = true;
+            else
+            {
+               
+            }
+            
         }
     }
 }
