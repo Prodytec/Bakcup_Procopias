@@ -22,20 +22,41 @@ namespace Cargar_series
         Ingresar I = new Ingresar();
         string Consulta = "ITEMS_SERIES_PROCOPIAS";
         public int idimagen;
+        public int idinterno;
+        public string Tipo;
         
 
         private void Cargar_series_Load(object sender, EventArgs e)
         {
-            string texto = txtfactura.Text;
-            string Fecha = txtfecha.Text;
-            char [] separador = { '-' , ' '};
-            string[] palabra = texto.Split(separador);
-            string[] fech = Fecha.Split(separador);
-            string Sucursal = txtfactura.Text = palabra[0];
-            string Numero = txtfactura.Text = palabra[1];
-            string Fecha1 = txtfecha.Text = fech[0];
-            Datagrid.Llenardatagrid(dgvfacturas, Consulta, idimagen);
-            txtfactura.Text = Sucursal + "-" + Numero;
+            if(Tipo == "RM")
+            {
+                string texto = txtfactura.Text;
+                string Fecha = txtfecha.Text;
+                char[] separador = { '-', ' ' };
+                string[] palabra = texto.Split(separador);
+                string[] fech = Fecha.Split(separador);
+                string Sucursal = txtfactura.Text = palabra[0];
+                string Numero = txtfactura.Text = palabra[1];
+                string Fecha1 = txtfecha.Text = fech[0];
+                txtfactura.Text = "RM" + "-" + Sucursal + "-" + Numero;
+            }
+            else if(Tipo == "RMS")
+            {
+
+            }
+            else
+            {
+                string texto = txtfactura.Text;
+                string Fecha = txtfecha.Text;
+                char[] separador = { '-', ' ' };
+                string[] palabra = texto.Split(separador);
+                string[] fech = Fecha.Split(separador);
+                string Sucursal = txtfactura.Text = palabra[0];
+                string Numero = txtfactura.Text = palabra[1];
+                string Fecha1 = txtfecha.Text = fech[0];
+                Datagrid.Llenardatagrid(dgvfacturas, Consulta, idimagen);
+                txtfactura.Text = "FAC" + "-" + Sucursal + "-" + Numero;
+            }
         }
 
         private void btnsalir_Click(object sender, EventArgs e)

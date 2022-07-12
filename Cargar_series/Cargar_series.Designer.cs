@@ -82,15 +82,15 @@ namespace Cargar_series
             this.lblfactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.lblfactura.Location = new System.Drawing.Point(13, 44);
             this.lblfactura.Name = "lblfactura";
-            this.lblfactura.Size = new System.Drawing.Size(76, 20);
+            this.lblfactura.Size = new System.Drawing.Size(122, 20);
             this.lblfactura.TabIndex = 7;
-            this.lblfactura.Text = "Factura:";
+            this.lblfactura.Text = "Comprobante:";
             // 
             // lblfecha
             // 
             this.lblfecha.AutoSize = true;
             this.lblfecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.lblfecha.Location = new System.Drawing.Point(318, 44);
+            this.lblfecha.Location = new System.Drawing.Point(369, 44);
             this.lblfecha.Name = "lblfecha";
             this.lblfecha.Size = new System.Drawing.Size(64, 20);
             this.lblfecha.TabIndex = 8;
@@ -107,7 +107,7 @@ namespace Cargar_series
             // txtfactura
             // 
             this.txtfactura.Enabled = false;
-            this.txtfactura.Location = new System.Drawing.Point(90, 44);
+            this.txtfactura.Location = new System.Drawing.Point(141, 44);
             this.txtfactura.Name = "txtfactura";
             this.txtfactura.Size = new System.Drawing.Size(210, 20);
             this.txtfactura.TabIndex = 10;
@@ -115,7 +115,7 @@ namespace Cargar_series
             // txtfecha
             // 
             this.txtfecha.Enabled = false;
-            this.txtfecha.Location = new System.Drawing.Point(388, 44);
+            this.txtfecha.Location = new System.Drawing.Point(439, 44);
             this.txtfecha.MaxLength = 6;
             this.txtfecha.Name = "txtfecha";
             this.txtfecha.Size = new System.Drawing.Size(103, 20);

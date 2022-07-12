@@ -16,35 +16,58 @@ namespace Formulas
         private DataTable dt = new DataTable();
         private SqlCommand cmd = new SqlCommand();
 
-        public void Llenardatagrid(DataGridView dgv, string Consulta, int Seleccion, MaskedTextBox Desde, MaskedTextBox Hasta, string Campo, TextBox Valor)
+        public void Llenardatagrid(DataGridView dgv, string Consulta, int Seleccion, string Campo, TextBox Valor)
         {
+            string Desde = "";
+            string Hasta = "";
             try
             {
+                if (Consulta == "SP_FACTURAS_PROCOPIAS")
+                {
+                    da = new SqlDataAdapter(Consulta, cnn);
+                    dt = new DataTable();
+                    dgv.DataSource = dt;
+                    DataSet ds = new DataSet();
+                    da.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                    da.SelectCommand.Parameters.AddWithValue("@Seleccion", Seleccion);
+                    da.SelectCommand.Parameters.AddWithValue("@Campo", Campo);
+                    da.SelectCommand.Parameters.AddWithValue("@valor", Valor.Text.ToString());
+                    da.SelectCommand.Parameters.AddWithValue("@Desde", Desde);
+                    da.SelectCommand.Parameters.AddWithValue("@Hasta", Hasta);
+                    da.Fill(ds, "Consulta");
+                    dgv.DataSource = dt;
+                    cnn.Close();
+                    dgv.DataSource = ds;
+                    dgv.DataMember = "Consulta";
 
-                da = new SqlDataAdapter(Consulta, cnn);
-                dt = new DataTable();
-                dgv.DataSource = dt;
-                DataSet ds = new DataSet();
+                    dgv.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    dgv.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    dgv.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dgv.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dgv.Columns[5].Visible = false;
+                }
+                else if (Consulta == "SP_REMITOS_PROCOPIAS")
+                {
+                    da = new SqlDataAdapter(Consulta, cnn);
+                    dt = new DataTable();
+                    dgv.DataSource = dt;
+                    DataSet ds1 = new DataSet();
+                    da.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                    da.SelectCommand.Parameters.AddWithValue("@Seleccion", Seleccion);
+                    da.SelectCommand.Parameters.AddWithValue("@Campo", Campo);
+                    da.SelectCommand.Parameters.AddWithValue("@valor", Valor.Text.ToString());
+                    da.Fill(ds1, "Consulta");
+                    dgv.DataSource = dt;
+                    cnn.Close();
+                    dgv.DataSource = ds1;
+                    dgv.DataMember = "Consulta";
 
-                da.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@Seleccion", Seleccion);
-                da.SelectCommand.Parameters.AddWithValue("@Campo", Campo);
-                da.SelectCommand.Parameters.AddWithValue("@valor", Valor.Text.ToString());
-                da.SelectCommand.Parameters.AddWithValue("@desde", Desde.Text.ToString());
-                da.SelectCommand.Parameters.AddWithValue("@hasta", Hasta.Text.ToString());
-                dgv.DataSource = dt;
-                da.Fill(ds, "Consulta");
-                cnn.Close();
-
-
-                dgv.DataSource = ds;
-                dgv.DataMember = "Consulta";
-
-                dgv.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                dgv.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                dgv.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                dgv.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                dgv.Columns[5].Visible = false;
+                    dgv.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    dgv.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    dgv.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dgv.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dgv.Columns[5].Visible = false;
+                }
             }
 
             catch (Exception ex)
@@ -140,31 +163,59 @@ namespace Formulas
             }
         }
 
-        public void Buscargrid(DataGridView dgv, string Consulta, int Seleccion, MaskedTextBox Desde, MaskedTextBox Hasta, string Campo, MaskedTextBox Valor)
+        public void Buscargrid(DataGridView dgv, string Consulta, int Seleccion, string Campo, MaskedTextBox Valor)
         {
+            string Desde = "";
+            string Hasta = "";
+            
             try
             {
-                da = new SqlDataAdapter(Consulta, cnn);
-                dt = new DataTable();
-                dgv.DataSource = dt;
-                DataSet ds = new DataSet();
-                da.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@Seleccion", Seleccion);
-                da.SelectCommand.Parameters.AddWithValue("@Campo", Campo);
-                da.SelectCommand.Parameters.AddWithValue("@valor", Valor.Text.ToString());
-                da.SelectCommand.Parameters.AddWithValue("@Desde", Desde.Text.ToString());
-                da.SelectCommand.Parameters.AddWithValue("@Hasta", Hasta.Text.ToString());
-                da.Fill(ds, "Consulta");
-                dgv.DataSource = dt;
-                cnn.Close();
-                dgv.DataSource = ds;
-                dgv.DataMember = "Consulta";
+                if(Consulta == "SP_FACTURAS_PROCOPIAS")
+                {
+                    da = new SqlDataAdapter(Consulta, cnn);
+                    dt = new DataTable();
+                    dgv.DataSource = dt;
+                    DataSet ds = new DataSet();
+                    da.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                    da.SelectCommand.Parameters.AddWithValue("@Seleccion", Seleccion);
+                    da.SelectCommand.Parameters.AddWithValue("@Campo", Campo);
+                    da.SelectCommand.Parameters.AddWithValue("@valor", Valor.Text.ToString());
+                    da.SelectCommand.Parameters.AddWithValue("@Desde", Desde);
+                    da.SelectCommand.Parameters.AddWithValue("@Hasta", Hasta);
+                    da.Fill(ds, "Consulta");
+                    dgv.DataSource = dt;
+                    cnn.Close();
+                    dgv.DataSource = ds;
+                    dgv.DataMember = "Consulta";
 
-                dgv.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                dgv.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                dgv.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                dgv.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                dgv.Columns[5].Visible = false;
+                    dgv.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    dgv.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    dgv.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dgv.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dgv.Columns[5].Visible = false;
+                }
+                else if(Consulta == "SP_REMITOS_PROCOPIAS")
+                {
+                    da = new SqlDataAdapter(Consulta, cnn);
+                    dt = new DataTable();
+                    dgv.DataSource = dt;
+                    DataSet ds1 = new DataSet();
+                    da.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                    da.SelectCommand.Parameters.AddWithValue("@Seleccion", Seleccion);
+                    da.SelectCommand.Parameters.AddWithValue("@Campo", Campo);
+                    da.SelectCommand.Parameters.AddWithValue("@valor", Valor.Text.ToString());
+                    da.Fill(ds1, "Consulta");
+                    dgv.DataSource = dt;
+                    cnn.Close();
+                    dgv.DataSource = ds1;
+                    dgv.DataMember = "Consulta";
+
+                    dgv.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    dgv.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    dgv.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dgv.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dgv.Columns[5].Visible = false;
+                }   
             }
             catch (Exception ex)
             {

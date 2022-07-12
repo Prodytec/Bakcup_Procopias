@@ -29,17 +29,13 @@ namespace Cargar_series
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cbfiltro = new System.Windows.Forms.ComboBox();
             this.dgvfacturas = new System.Windows.Forms.DataGridView();
             this.txtnombrecli = new System.Windows.Forms.TextBox();
             this.txttipo = new System.Windows.Forms.TextBox();
             this.txtsucursal = new System.Windows.Forms.TextBox();
             this.txtnumero = new System.Windows.Forms.TextBox();
-            this.lbldesde = new System.Windows.Forms.Label();
-            this.lblhasta = new System.Windows.Forms.Label();
-            this.mtxthasta = new System.Windows.Forms.MaskedTextBox();
-            this.mtxtdesde = new System.Windows.Forms.MaskedTextBox();
             this.mtxtbuscarfecha = new System.Windows.Forms.MaskedTextBox();
             this.btnsalir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvfacturas)).BeginInit();
@@ -62,14 +58,14 @@ namespace Cargar_series
             this.dgvfacturas.AllowUserToOrderColumns = true;
             this.dgvfacturas.AllowUserToResizeRows = false;
             this.dgvfacturas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvfacturas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvfacturas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvfacturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvfacturas.Location = new System.Drawing.Point(12, 111);
             this.dgvfacturas.Name = "dgvfacturas";
@@ -111,43 +107,6 @@ namespace Cargar_series
             this.txtnumero.TabIndex = 9;
             this.txtnumero.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtnumero_KeyUp);
             // 
-            // lbldesde
-            // 
-            this.lbldesde.AutoSize = true;
-            this.lbldesde.Location = new System.Drawing.Point(159, 16);
-            this.lbldesde.Name = "lbldesde";
-            this.lbldesde.Size = new System.Drawing.Size(69, 13);
-            this.lbldesde.TabIndex = 7;
-            this.lbldesde.Text = "Fecha desde";
-            // 
-            // lblhasta
-            // 
-            this.lblhasta.AutoSize = true;
-            this.lblhasta.Location = new System.Drawing.Point(357, 15);
-            this.lblhasta.Name = "lblhasta";
-            this.lblhasta.Size = new System.Drawing.Size(35, 13);
-            this.lblhasta.TabIndex = 8;
-            this.lblhasta.Text = "Hasta";
-            // 
-            // mtxthasta
-            // 
-            this.mtxthasta.Location = new System.Drawing.Point(416, 12);
-            this.mtxthasta.Mask = "00/00/0000";
-            this.mtxthasta.Name = "mtxthasta";
-            this.mtxthasta.Size = new System.Drawing.Size(99, 20);
-            this.mtxthasta.TabIndex = 3;
-            this.mtxthasta.ValidatingType = typeof(System.DateTime);
-            this.mtxthasta.Leave += new System.EventHandler(this.mtxthasta_Leave);
-            // 
-            // mtxtdesde
-            // 
-            this.mtxtdesde.Location = new System.Drawing.Point(234, 13);
-            this.mtxtdesde.Mask = "00/00/0000";
-            this.mtxtdesde.Name = "mtxtdesde";
-            this.mtxtdesde.Size = new System.Drawing.Size(99, 20);
-            this.mtxtdesde.TabIndex = 2;
-            this.mtxtdesde.ValidatingType = typeof(System.DateTime);
-            // 
             // mtxtbuscarfecha
             // 
             this.mtxtbuscarfecha.Location = new System.Drawing.Point(208, 85);
@@ -175,10 +134,6 @@ namespace Cargar_series
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnsalir);
             this.Controls.Add(this.mtxtbuscarfecha);
-            this.Controls.Add(this.mtxtdesde);
-            this.Controls.Add(this.mtxthasta);
-            this.Controls.Add(this.lblhasta);
-            this.Controls.Add(this.lbldesde);
             this.Controls.Add(this.txtnumero);
             this.Controls.Add(this.txtsucursal);
             this.Controls.Add(this.txttipo);
@@ -201,10 +156,6 @@ namespace Cargar_series
         private System.Windows.Forms.DataGridView dgvfacturas;
         private System.Windows.Forms.TextBox txtnombrecli;
         private System.Windows.Forms.TextBox txttipo;
-        private System.Windows.Forms.Label lbldesde;
-        private System.Windows.Forms.Label lblhasta;
-        private System.Windows.Forms.MaskedTextBox mtxthasta;
-        private System.Windows.Forms.MaskedTextBox mtxtdesde;
         private System.Windows.Forms.MaskedTextBox mtxtbuscarfecha;
         private System.Windows.Forms.Button btnsalir;
         private System.Windows.Forms.TextBox txtsucursal;
