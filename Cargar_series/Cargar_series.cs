@@ -21,6 +21,8 @@ namespace Cargar_series
         Datagrid Datagrid = new Datagrid();
         Ingresar I = new Ingresar();
         string Consulta = "ITEMS_SERIES_PROCOPIAS";
+        string CItemRemito = "ITEMS_SERIES_PROCOPIAS_REMITOS";
+        string CitemRemitoServicios = "ITEMS_SERIES_PROCOPIAS_REMITOS_SERVICIOS";
         public int idimagen;
         public int idinterno;
         public string Tipo;
@@ -38,11 +40,21 @@ namespace Cargar_series
                 string Sucursal = txtfactura.Text = palabra[0];
                 string Numero = txtfactura.Text = palabra[1];
                 string Fecha1 = txtfecha.Text = fech[0];
+                Datagrid.Llenardatagrid(dgvfacturas, CItemRemito, idinterno);
                 txtfactura.Text = "RM" + "-" + Sucursal + "-" + Numero;
             }
             else if(Tipo == "RMS")
             {
-
+                string texto = txtfactura.Text;
+                string Fecha = txtfecha.Text;
+                char[] separador = { '-', ' ' };
+                string[] palabra = texto.Split(separador);
+                string[] fech = Fecha.Split(separador);
+                string Sucursal = txtfactura.Text = palabra[0];
+                string Numero = txtfactura.Text = palabra[1];
+                string Fecha1 = txtfecha.Text = fech[0];
+                Datagrid.Llenardatagrid(dgvfacturas, CitemRemitoServicios, idinterno);
+                txtfactura.Text = "RMS" + "-" + Sucursal + "-" + Numero;
             }
             else
             {
