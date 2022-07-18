@@ -36,6 +36,7 @@ namespace Cargar_series
             SqlConnection cnn = Conexionbd.DbConnection.getDBConnection();
             string sp = "SP_REPORTE_PDF_PROCOPIAS";
             string Csqlremito = "SP_REPORTE_PDF_PROCOPIAS_REMITOS";
+            string CsqlremitoS = "SP_REPORTE_PDF_PROCOPIAS_REMITOS_SERVICIOS";
             if(Tipo == "RM")
             {
                 SqlDataAdapter da = new SqlDataAdapter(Csqlremito, cnn);
@@ -45,7 +46,10 @@ namespace Cargar_series
             }
             else if(Tipo == "RMS")
             {
-
+                SqlDataAdapter da = new SqlDataAdapter(CsqlremitoS, cnn);
+                da.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@IDINTERNO", idinterno);
+                da.Fill(D, CsqlremitoS.Trim());
             }
             else
             {

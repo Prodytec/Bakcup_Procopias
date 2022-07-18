@@ -14,14 +14,14 @@
     <framework targetVersion="4.8" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="Cargar_series.exe.manifest" size="45598">
+    <dependentAssembly dependencyType="install" codebase="Cargar_series.exe.manifest" size="44960">
       <assemblyIdentity name="Cargar_series.exe" version="1.0.0.35" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>1VEoP5BLvUuXXCp52+zTHIwlzioeeoPGonmssPtMeWA=</dsig:DigestValue>
+        <dsig:DigestValue>7WgTsk91yAvZ9wBIRXQelOY57KXfA+O/Btgxga3jdvo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

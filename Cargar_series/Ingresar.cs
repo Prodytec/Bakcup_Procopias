@@ -101,7 +101,7 @@ namespace Cargar_series
                             string valor = this.dgv.Rows[fila].Cells[col].Value.ToString();
                             if (valor != null)
                             {
-                                Datagrid.Grabar(dgv, Csqlremito, 2, valor, codigoart, idimagen, idinterno);
+                                Datagrid.Grabar(dgv, CsqlremitoServ, 2, valor, codigoart, idimagen, idinterno);
                             }
                         }
                     }
@@ -213,7 +213,7 @@ namespace Cargar_series
                     cnn.Open();
                     SqlCommand cmd2 = new SqlCommand("delete from SERIESREMITOSSERVICIOS where IDINTERNO = " + idinterno + "and CODIGOART = " + "'" + codigoart + "'" + "", cnn);
                     cmd2.ExecuteNonQuery();
-                    Datagrid.Grabar(dgv, Csqlremito, 1, Valor, codigoart, idimagen, idinterno);
+                    Datagrid.Grabar(dgv, CsqlremitoServ, 1, Valor, codigoart, idimagen, idinterno);
                     cnn.Close();
                 }
                 else

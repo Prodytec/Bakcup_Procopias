@@ -64,14 +64,6 @@ namespace Cargar_series
             {
                 Datagrid.Llenardatagrid(dgvfacturas, Facturas, 4, Tipo, txttipo);
             }
-            else if(cbfiltro.SelectedIndex == 2)
-            {
-                Datagrid.Llenardatagrid(dgvfacturas, Remitos, 2, Tipo, txttipo);
-            }
-            else if (cbfiltro.SelectedIndex == 3)
-            {
-                Datagrid.Llenardatagrid(dgvfacturas, RemitosServicios, 2, Tipo, txttipo);
-            }
         }
 
         private void txtsucursal_KeyUp(object sender, KeyEventArgs e)
