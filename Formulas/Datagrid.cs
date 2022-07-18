@@ -51,45 +51,96 @@ namespace Formulas
             }
         }
 
-        public void Grabar(DataGridView dgv, string Consulta, int Seleccion, string serie, string codigoart, int idimagen)
+        public void Grabar(DataGridView dgv, string Consulta, int Seleccion, string serie, string codigoart, int idimagen, int idinterno)
         {
             try
             {
+
                 if (Seleccion == 1)
                 {
                     da = new SqlDataAdapter(Consulta, cnn);
                     dt = new DataTable();
-                   
-                    
                     DataSet ds = new DataSet();
-
-                    da.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
-                    da.SelectCommand.Parameters.AddWithValue("@Seleccion", Seleccion);
-                    da.SelectCommand.Parameters.AddWithValue("@serie", serie);
-                    da.SelectCommand.Parameters.AddWithValue("@codigoart", codigoart);
-                    da.SelectCommand.Parameters.AddWithValue("@idimagenc", idimagen);
-
-                    //dgv.DataSource = dt;
-                    da.Fill(ds, Consulta);
-                    dgv.DataSource = ds;
-                    dgv.DataMember = "Sp_Series";
+                    if (Consulta == "SP_SERIES")
+                    {
+                        da.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                        da.SelectCommand.Parameters.AddWithValue("@Seleccion", Seleccion);
+                        da.SelectCommand.Parameters.AddWithValue("@serie", serie);
+                        da.SelectCommand.Parameters.AddWithValue("@codigoart", codigoart);
+                        da.SelectCommand.Parameters.AddWithValue("@idimagenc", idimagen);
+                        da.Fill(ds, Consulta);
+                        dgv.DataSource = ds;
+                        dgv.DataMember = "Sp_Series";
+                    }
+                    else if (Consulta == "SP_SERIES_REMITOS")
+                    {
+                        da.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                        da.SelectCommand.Parameters.AddWithValue("@Seleccion", Seleccion);
+                        da.SelectCommand.Parameters.AddWithValue("@serie", serie);
+                        da.SelectCommand.Parameters.AddWithValue("@codigoart", codigoart);
+                        da.SelectCommand.Parameters.AddWithValue("@idinterno", idinterno);
+                        da.Fill(ds, Consulta);
+                        dgv.DataSource = ds;
+                        dgv.DataMember = "SP_SERIES_REMITOS";
+                    }
+                    else if(Consulta == "SP_SERIES_REMITOS_SERVICIOS")
+                    {
+                        da.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                        da.SelectCommand.Parameters.AddWithValue("@Seleccion", Seleccion);
+                        da.SelectCommand.Parameters.AddWithValue("@serie", serie);
+                        da.SelectCommand.Parameters.AddWithValue("@codigoart", codigoart);
+                        da.SelectCommand.Parameters.AddWithValue("@idinterno", idinterno);
+                        da.Fill(ds, Consulta);
+                        dgv.DataSource = ds;
+                        dgv.DataMember = "SP_SERIES_REMITOS_SERVICIOS";
+                    }
+                    
                 }
                 else
                 {
                     // connection();  
                     cnn.Open();
                     var transaccion = cnn.BeginTransaction();
-                    string query = "sp_series";         //Stored Procedure name   
-                    SqlCommand com = new SqlCommand(query, cnn, transaccion);  //creating  SqlCommand  object  
-                    com.CommandType = CommandType.StoredProcedure;  //here we declaring command type as stored Procedure  
-
-                    com.Parameters.AddWithValue("@Seleccion", Seleccion);        //first Name  
-                    com.Parameters.AddWithValue("@Serie ", serie.ToUpper());     //middle Name  
-                    com.Parameters.AddWithValue("@codigoart", codigoart);
-                    com.Parameters.AddWithValue("@idimagenc ", idimagen);//Last Name                               //
-                    com.ExecuteNonQuery();
-                    transaccion.Commit();
-                    cnn.Close();
+                    if(Consulta == "SP_SERIES")
+                    {
+                        string query = "sp_series";         //Stored Procedure name   
+                        SqlCommand com = new SqlCommand(query, cnn, transaccion);  //creating  SqlCommand  object  
+                        com.CommandType = CommandType.StoredProcedure;  //here we declaring command type as stored 
+                        com.Parameters.AddWithValue("@Seleccion", Seleccion);        //first Name  
+                        com.Parameters.AddWithValue("@Serie ", serie.ToUpper());     //middle Name  
+                        com.Parameters.AddWithValue("@codigoart", codigoart);
+                        com.Parameters.AddWithValue("@idimagenc ", idimagen);//Last Name                               //
+                        com.ExecuteNonQuery();
+                        transaccion.Commit();
+                        cnn.Close();
+                    }
+                    else if(Consulta == "SP_SERIES_REMITOS")
+                    {
+                        string query = "SP_SERIES_REMITOS";         //Stored Procedure name   
+                        SqlCommand com = new SqlCommand(query, cnn, transaccion);  //creating  SqlCommand  object  
+                        com.CommandType = CommandType.StoredProcedure;  //here we declaring command type as stored 
+                        com.Parameters.AddWithValue("@Seleccion", Seleccion);        //first Name  
+                        com.Parameters.AddWithValue("@Serie ", serie.ToUpper());     //middle Name  
+                        com.Parameters.AddWithValue("@codigoart", codigoart);
+                        com.Parameters.AddWithValue("@idinterno ", idinterno);//Last Name                               //
+                        com.ExecuteNonQuery();
+                        transaccion.Commit();
+                        cnn.Close();
+                    }
+                    else if(Consulta == "SP_SERIES_REMITOS_SERVICIOS")
+                    {
+                        string query = "SP_SERIES_REMITOS_SERVICIOS";         //Stored Procedure name   
+                        SqlCommand com = new SqlCommand(query, cnn, transaccion);  //creating  SqlCommand  object  
+                        com.CommandType = CommandType.StoredProcedure;  //here we declaring command type as stored 
+                        com.Parameters.AddWithValue("@Seleccion", Seleccion);        //first Name  
+                        com.Parameters.AddWithValue("@Serie ", serie.ToUpper());     //middle Name  
+                        com.Parameters.AddWithValue("@codigoart", codigoart);
+                        com.Parameters.AddWithValue("@idinterno ", idinterno);//Last Name                               //
+                        com.ExecuteNonQuery();
+                        transaccion.Commit();
+                        cnn.Close();
+                    }
+                    
                 }
             }
             catch (Exception ex)

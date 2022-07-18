@@ -86,24 +86,74 @@ namespace Cargar_series
                 }
                 else
                 {
-                    I.idimagen = idimagen;
-                    I.codigoart = dgvfacturas.Rows[e.RowIndex].Cells["Codigo"].Value.ToString();
-                    I.cantidad = Convert.ToInt32(dgvfacturas.Rows[e.RowIndex].Cells["Cantidad pedida"].Value.ToString());
-                    if (dgvfacturas.Rows[e.RowIndex].Cells["Cantidad pedida"].Value.ToString() == dgvfacturas.Rows[e.RowIndex].Cells["Cantidad escaneada"].Value.ToString())
+                    if(Tipo == "RM")
                     {
-                        I.dgv.AllowUserToAddRows = false;
-                        I.ShowDialog();
-                        dgvfacturas.DataSource = null;
-                        dgvfacturas.Rows.Clear();
-                        Datagrid.Llenardatagrid(dgvfacturas, Consulta, idimagen);
+                        I.idinterno = idinterno;
+                        I.Tipo = Tipo;
+                        I.codigoart = dgvfacturas.Rows[e.RowIndex].Cells["Codigo"].Value.ToString();
+                        I.cantidad = Convert.ToInt32(dgvfacturas.Rows[e.RowIndex].Cells["Cantidad pedida"].Value.ToString());
+                        if (dgvfacturas.Rows[e.RowIndex].Cells["Cantidad pedida"].Value.ToString() == dgvfacturas.Rows[e.RowIndex].Cells["Cantidad escaneada"].Value.ToString())
+                        {
+                            I.dgv.AllowUserToAddRows = false;
+                            I.ShowDialog();
+                            dgvfacturas.DataSource = null;
+                            dgvfacturas.Rows.Clear();
+                            Datagrid.Llenardatagrid(dgvfacturas, CItemRemito, idinterno);
+                        }
+                        else
+                        {
+                            I.ShowDialog();
+                            dgvfacturas.DataSource = null;
+                            dgvfacturas.Rows.Clear();
+                            dgvfacturas.Columns.Clear();
+                            Datagrid.Llenardatagrid(dgvfacturas, CItemRemito, idinterno);
+                        }
+                    }
+                    else if(Tipo == "RMS")
+                    {
+                        I.idinterno = idinterno;
+                        I.Tipo = Tipo;
+                        I.codigoart = dgvfacturas.Rows[e.RowIndex].Cells["Codigo"].Value.ToString();
+                        I.cantidad = Convert.ToInt32(dgvfacturas.Rows[e.RowIndex].Cells["Cantidad pedida"].Value.ToString());
+                        if (dgvfacturas.Rows[e.RowIndex].Cells["Cantidad pedida"].Value.ToString() == dgvfacturas.Rows[e.RowIndex].Cells["Cantidad escaneada"].Value.ToString())
+                        {
+                            I.dgv.AllowUserToAddRows = false;
+                            I.ShowDialog();
+                            dgvfacturas.DataSource = null;
+                            dgvfacturas.Rows.Clear();
+                            Datagrid.Llenardatagrid(dgvfacturas, CitemRemitoServicios, idinterno);
+                        }
+                        else
+                        {
+                            I.ShowDialog();
+                            dgvfacturas.DataSource = null;
+                            dgvfacturas.Rows.Clear();
+                            dgvfacturas.Columns.Clear();
+                            Datagrid.Llenardatagrid(dgvfacturas, CitemRemitoServicios, idinterno);
+                        }
                     }
                     else
                     {
-                        I.ShowDialog();
-                        dgvfacturas.DataSource = null;
-                        dgvfacturas.Rows.Clear();
-                        dgvfacturas.Columns.Clear();
-                        Datagrid.Llenardatagrid(dgvfacturas, Consulta, idimagen);
+                        I.idimagen = idimagen;
+                        I.Tipo = Tipo;
+                        I.codigoart = dgvfacturas.Rows[e.RowIndex].Cells["Codigo"].Value.ToString();
+                        I.cantidad = Convert.ToInt32(dgvfacturas.Rows[e.RowIndex].Cells["Cantidad pedida"].Value.ToString());
+                        if (dgvfacturas.Rows[e.RowIndex].Cells["Cantidad pedida"].Value.ToString() == dgvfacturas.Rows[e.RowIndex].Cells["Cantidad escaneada"].Value.ToString())
+                        {
+                            I.dgv.AllowUserToAddRows = false;
+                            I.ShowDialog();
+                            dgvfacturas.DataSource = null;
+                            dgvfacturas.Rows.Clear();
+                            Datagrid.Llenardatagrid(dgvfacturas, Consulta, idimagen);
+                        }
+                        else
+                        {
+                            I.ShowDialog();
+                            dgvfacturas.DataSource = null;
+                            dgvfacturas.Rows.Clear();
+                            dgvfacturas.Columns.Clear();
+                            Datagrid.Llenardatagrid(dgvfacturas, Consulta, idimagen);
+                        }
                     }
                 }
             }
@@ -112,10 +162,12 @@ namespace Cargar_series
         private void btnreporte_Click(object sender, EventArgs e)
         {
             Reportepdf pdf = new Reportepdf();
+            pdf.idinterno = idinterno;
             pdf.idimagen = idimagen;
             pdf.nombrecli = txtcliente.Text;
             pdf.numerofc = txtfactura.Text;
             pdf.fecha = txtfecha.Text;
+            pdf.Tipo = Tipo;
             pdf.ShowDialog();
         }
     }

@@ -24,19 +24,38 @@ namespace Cargar_series
         }
 
         public int idimagen;
+        public int idinterno;
         public string nombrecli;
         public string numerofc;
         public string fecha;
+        public string Tipo;
 
         private void Reportepdf_Load(object sender, EventArgs e)
         {
             DataSet D = new DataSet();
             SqlConnection cnn = Conexionbd.DbConnection.getDBConnection();
             string sp = "SP_REPORTE_PDF_PROCOPIAS";
-            SqlDataAdapter da = new SqlDataAdapter(sp, cnn);
-            da.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
-            da.SelectCommand.Parameters.AddWithValue("@IDIMAGEN", idimagen);
-            da.Fill(D, sp.Trim());
+            string Csqlremito = "SP_REPORTE_PDF_PROCOPIAS_REMITOS";
+            if(Tipo == "RM")
+            {
+                SqlDataAdapter da = new SqlDataAdapter(Csqlremito, cnn);
+                da.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@IDINTERNO", idinterno);
+                da.Fill(D, Csqlremito.Trim());
+            }
+            else if(Tipo == "RMS")
+            {
+
+            }
+            else
+            {
+                SqlDataAdapter da = new SqlDataAdapter(sp, cnn);
+                da.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@IDIMAGEN", idimagen);
+                da.Fill(D, sp.Trim());
+            }
+            
+            
 
             ReportDataSource Rds = new ReportDataSource("DataSet1", D.Tables[0]);
             this.reportViewer1.LocalReport.DataSources.Clear();

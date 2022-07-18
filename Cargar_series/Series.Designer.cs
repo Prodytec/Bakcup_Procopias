@@ -29,7 +29,7 @@ namespace Cargar_series
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cbfiltro = new System.Windows.Forms.ComboBox();
             this.dgvfacturas = new System.Windows.Forms.DataGridView();
             this.txtnombrecli = new System.Windows.Forms.TextBox();
@@ -47,7 +47,7 @@ namespace Cargar_series
             this.cbfiltro.FormattingEnabled = true;
             this.cbfiltro.Location = new System.Drawing.Point(12, 12);
             this.cbfiltro.Name = "cbfiltro";
-            this.cbfiltro.Size = new System.Drawing.Size(121, 21);
+            this.cbfiltro.Size = new System.Drawing.Size(175, 21);
             this.cbfiltro.TabIndex = 1;
             this.cbfiltro.SelectedIndexChanged += new System.EventHandler(this.cbfiltro_SelectedIndexChanged);
             // 
@@ -58,14 +58,14 @@ namespace Cargar_series
             this.dgvfacturas.AllowUserToOrderColumns = true;
             this.dgvfacturas.AllowUserToResizeRows = false;
             this.dgvfacturas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvfacturas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvfacturas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvfacturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvfacturas.Location = new System.Drawing.Point(12, 111);
             this.dgvfacturas.Name = "dgvfacturas";
