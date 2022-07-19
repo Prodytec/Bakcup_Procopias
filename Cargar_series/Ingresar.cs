@@ -31,6 +31,7 @@ namespace Cargar_series
         string CsqlremitoServ = "SP_SERIES_REMITOS_SERVICIOS";
         string Valor = "series";
         public string Tipo;
+        int cantidadescan = 0;
 
 
         private void Ingresar_Load(object sender, EventArgs e)
@@ -39,7 +40,6 @@ namespace Cargar_series
             {
                 Datagrid.Grabar(dgv, Csqlremito, 1, Valor, codigoart, idimagen, idinterno);
                 lblcantpedida.Text = cantidad.ToString();
-                int cantidadescan = (dgv.Rows.Count - 1);
                 lblcantescan.Text = cantidadescan.ToString();
                 dgv.AllowUserToAddRows = true;
                 dgv.Focus();
@@ -48,7 +48,6 @@ namespace Cargar_series
             {
                 Datagrid.Grabar(dgv, CsqlremitoServ, 1, Valor, codigoart, idimagen, idinterno);
                 lblcantpedida.Text = cantidad.ToString();
-                int cantidadescan = (dgv.Rows.Count - 1);
                 lblcantescan.Text = cantidadescan.ToString();
                 dgv.AllowUserToAddRows = true;
                 dgv.Focus();
@@ -57,7 +56,6 @@ namespace Cargar_series
             {
                 Datagrid.Grabar(dgv, Sql, 1, Valor, codigoart, idimagen, idinterno);
                 lblcantpedida.Text = cantidad.ToString();
-                int cantidadescan = (dgv.Rows.Count - 1);
                 lblcantescan.Text = cantidadescan.ToString();
                 dgv.AllowUserToAddRows = true;
                 dgv.Focus();
